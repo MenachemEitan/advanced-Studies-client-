@@ -1,0 +1,44 @@
+.custom-btn{
+    text-decoration: none;
+    color: "black";
+    margin: 10px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid black; 
+    
+}
+
+
+
+.btn-link{   
+text-decoration: none;
+padding: 10px;
+cursor: pointer;
+font-size: var(--fs-md);
+color: "white" 
+}
+
+.btn-col{
+border: 2px solid #efeef1;
+border-radius: 10px;
+margin-top: 10px;
+padding-right: 10px;
+
+}
+
+h6{
+    padding: 5px;
+}
+.btn-col.blue{
+background-color:var(  --clr-success);
+color: white;    
+    }
+
+.btn-col:hover{
+    border: 2px solid rgb(171, 178, 190);
+    transition-delay:0.07s;
+}
+
+
+
+
+

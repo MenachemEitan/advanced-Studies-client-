@@ -1,0 +1,23 @@
+.search-bar{
+    border: 1px solid black;
+    border-left:none;
+    border-radius:0 5px 5px 0;
+    min-height: 40px;
+    width: 400px;
+  }
+  
+  .search-bar-btn{
+    position: relative;
+    left: 0;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 5px 0 0 5px;
+    padding: 1px;
+    background-color:#000000;
+  }
+  
+  .search-bar-container{
+  display:flex;
+  height: 40px;
+  }
+  
+  

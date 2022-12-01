@@ -1,0 +1,139 @@
+#root{  
+    height: 100%;
+    width: 100%;
+  }
+  
+  
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  body, html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    color: #353030;
+    font-weight: 500;
+    background-color: #efeef1; 
+    font-family: 'Metropolis-Regular', "Segoe UI", Helvetica Neue, Helvetica, sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6{
+    padding: 0;
+    margin:0;
+    font-weight: 400;
+  }
+  
+  
+  :root {
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 12px;
+    --space-xl: 16px;
+   
+    --fs-xs:   clamp(0.7rem, 0.75vw, 1rem);
+    --fs-sm:  clamp(1rem, 0.9vw, 2rem);
+    --fs-md:  clamp(1rem, 1vw, 3rem);
+    --fs-lg:  clamp(1rem, 1.5vw, 3.5rem); 
+    --fs-xl:  clamp(1.5rem, 2vw, 4rem);
+    --fs-xxl:   clamp(2rem, 2.5vw, 4.5rem);
+  
+    --radius-sm: 4px;
+    
+    --clr-bg-default: #f5f6f8;
+    --clr-bg-paper: #ffffff;
+    --clr-accent: #109cf1;
+    --clr-text-primary: #323c47;
+    --clr-text-secondary: #4c5862;
+    --clr-success: #2ed47a;
+    --clr-success-contrast: #ffffff;
+    --clr-danger: #f7685b;
+    --clr-danger-contrast: #efeef1;
+  }
+  
+  
+  h1{
+    font-size: var(--fs-xxl);
+  }
+  h2{
+    font-size: var(--fs-xl);
+  }
+  h3{
+    font-size: var(--fs-lg);
+  }
+  h4{
+    font-size: var(--fs-md);
+  }
+  h5{
+    font-size: var(--fs-sm);
+  }
+  h6{
+    font-size: var(--fs-xs);
+  }
+  
+  .col{
+  display: flex;
+  flex-direction: column;
+  }
+  
+  .row{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center
+  }
+  
+  .between{
+    justify-content: space-between;
+  }
+  
+  .left{
+    justify-content: flex-start;
+    align-items:flex-start;
+  }
+  
+  .right{
+    justify-content: flex-end;
+    align-items:flex-end;
+  }
+  
+  .top{
+    align-items:start;
+  } 
+
+  .pad{
+    padding: 10px;
+  }
+  
+  
+  .App{  
+    height: 100%;
+    max-width: 100%;
+    font-family: 'Metropolis-Regular', "Segoe UI", Helvetica Neue, Helvetica, sans-serif; 
+    display:flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .header{
+    width: 100%;
+    background-color:#f5f6f8;
+    display: flex;
+    flex-direction: column;
+    justify-content:center; 
+    border-bottom: var(--fs-lg) solid #999999;
+  }
+
+  .header-img{
+    width: var(--fs-xl);
+  }
+
+  .navbar{
+    margin-left: 60px;
+  }
+
+
+
