@@ -16,7 +16,7 @@
     padding: 0;
     color: #353030;
     font-weight: 500;
-    background-color: #efeef1; 
+    background-color: #ffffff; 
     font-family: 'Metropolis-Regular', "Segoe UI", Helvetica Neue, Helvetica, sans-serif;
   }
   
@@ -39,7 +39,15 @@
     --fs-lg:  clamp(1rem, 1.5vw, 3.5rem); 
     --fs-xl:  clamp(1.5rem, 2vw, 4rem);
     --fs-xxl:   clamp(2rem, 2.5vw, 4.5rem);
-  
+
+    --img-xxs:   clamp(20px, 15vw, 100px);
+    --img-xs:   clamp(50px, 15vw, 200px);
+    --img-sm:  clamp(75px, 20vw, 250px);
+    --img-md:  clamp(100px, 25vw, 300px);
+    --img-lg:  clamp(150px, 30vw, 350px); 
+    --img-xl:  clamp(200px, 35vw, 400px);
+    --img-xxl:   clamp(250px, 40vw, 450px);
+
     --radius-sm: 4px;
     
     --clr-bg-default: #f5f6f8;
@@ -76,6 +84,7 @@
   .col{
   display: flex;
   flex-direction: column;
+  align-items:center;
   }
   
   .row{
@@ -131,9 +140,126 @@
     width: var(--fs-xl);
   }
 
+  .card-img{
+    width: var(--img-xxs);
+  }
+
   .navbar{
     margin-left: 60px;
   }
+
+  .welcome-section{
+    /* position: absolute;
+    top:30%;
+    right: 0;  */
+  }
+
+  .homePagePhoto{
+    width:var(--img-xxl)
+  }
+
+  .class-card{
+    margin: 10px;
+    border-radius: 6px;
+    width: clamp(200px, 15vw, 450px);
+    height: clamp(200px, 15vw, 450px);
+    border: 1px solid #ccc; 
+    opacity: 0.8
+   }
+
+ .class-card:hover{
+ opacity: 1;
+
+ }
+
+   .classes{
+    /* position: absolute;
+    top:0%;
+    right: 0;  */
+   }
+
+
+   .card2 {
+  
+    display: block;
+    top: 0px;
+    position: relative;
+    max-width: 262px;
+    /* background-color: #f2f8f9; */
+    border: 1px solid rgb(29, 27, 27);
+    border-radius: 4px;
+    padding: 32px 24px;
+    margin: 12px;
+    text-decoration: none;
+    z-index: 0;
+    overflow: hidden;
+   
+    border: 1px solid #cccccc;
+  }
+  
+  .card2:before {
+    
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: -16px;
+      right: -16px;
+      /* background: #d8d8d8; */
+      height: 32px;
+      width: 32px;
+      border-radius: 32px;
+      transform: scale(2);
+      transform-origin: 50% 50%;
+      transition: transform 0.15s ease-out;
+    }
+  
+    .card2:hover:before {
+      transform: scale(2.15);
+    }
+
+    .card2:hover {
+      transition: all 0.2s ease-out;
+      box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
+      top: -4px;
+      border: 1px solid #cccccc;
+      background-color: white;
+    }
+
+    .recommended-classes{
+      margin: auto;
+      width: clamp(600px ,70vw , 800px);
+      /* border: 3px solid green; */
+      padding: 10px;
+
+
+    }
+
+    .recommended-classes-title{
+      margin-left: 10px;
+      padding-bottom: 10px;
+    }
+
+    .open-classes{
+      margin: auto;
+      width: clamp(700px ,70vw , 800px);
+      
+      /* border: 3px solid green; */
+      padding: 10px;
+    }
+
+
+
+    .open-classes-title{
+      margin-left: 10px;
+      padding-bottom: 10px;
+    }
+
+
+  
+    
+
+
+ 
 
 
 

@@ -6,9 +6,9 @@ const Header = () => {
   return (
     <div className="header">
       <div className="row between">
-        <div className="row left">
-          <div className="title pad">
-            <div className="row left">
+        <div className="row ">
+          <div className="header-title">
+            <div className="row">
               <h3>
                 <b>Advanced Studies</b>
               </h3>
