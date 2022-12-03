@@ -1,16 +1,14 @@
 import React from "react";
 import Button from "../Button/Button";
+import Icon from "../Icon/Icon";
 import "./SearchBar.css";
 
 const SearchBar = ({ onClick, setPetFilter }) => {
   return (
     <div className="search-bar-container">
-      <Button
-        style={{ color: "white" }}
-        icon={"search"}
-        className="search-bar-btn"
-        onClick={onClick}
-      ></Button>
+      <button className="search-bar-btn">
+        <Icon Icon={"search"} size={"fa-lg"}></Icon>
+      </button>
       <input
         className="search-bar"
         onChange={(e) => {

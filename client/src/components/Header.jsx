@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../assets/img/atom.png";
 import Icon from "../Layouts/Icon/Icon";
+import PopUp from "../Layouts/PopUp/PopUp";
 import Navbar from "./Navbar";
 const Header = () => {
   return (
@@ -17,9 +18,18 @@ const Header = () => {
           </div>
           <Navbar />
         </div>
-        <div className="pad">
-          <Icon Icon={"bars"} />
-        </div>
+
+        <PopUp
+          modal={"modal-1"}
+          icon={"bars"}
+          className={"modal"}
+          style={{ color: "red" }}
+        >
+          <div className="col left pad">
+            <div className="pad">Profile</div>
+            <div className="pad">Logout</div>
+          </div>
+        </PopUp>
       </div>
     </div>
   );
