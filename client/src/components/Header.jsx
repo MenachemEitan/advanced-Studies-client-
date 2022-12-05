@@ -2,6 +2,8 @@ import React from "react";
 import logo from "../assets/img/atom.png";
 import Icon from "../Layouts/Icon/Icon";
 import PopUp from "../Layouts/PopUp/PopUp";
+import { LoginModal } from "../modals/LoginModal";
+import { Login } from "./Login";
 import Navbar from "./Navbar";
 const Header = () => {
   return (
@@ -17,7 +19,15 @@ const Header = () => {
             </div>
           </div>
           <Navbar />
+ <LoginModal>
+  Login
+ </LoginModal>
         </div>
+        
+      
+         
+      
+        
 
         <PopUp
           modal={"modal-1"}
@@ -30,6 +40,8 @@ const Header = () => {
             <div className="pad">Logout</div>
           </div>
         </PopUp>
+
+
       </div>
     </div>
   );
