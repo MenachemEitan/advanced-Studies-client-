@@ -1,8 +1,8 @@
 import { useState } from "react"
 import axios from "axios";
-// import { postSignUp } from "../axios"
 
 import '../componentStyle/signUp.css'
+import { storeToken, storeUserData } from "../auth/localStorage";
 
 export const SignUp = (props) => {
 
@@ -12,8 +12,8 @@ export const SignUp = (props) => {
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
 
-    const [error, setError] = useState()
-    const [data, setData] = useState()
+    const [error, setError] = useState([])
+    
 
     const inputEmail = (e) => {
         setEmail(e.target.value);
@@ -42,14 +42,14 @@ export const SignUp = (props) => {
     const handelSubmit = ()=>{
        axios.post(`http://localhost:4000/users/signup`,userData).then(data =>{
         console.log(data);
-        // props.handleModal()
+        storeToken(data.data.data[0])
+        storeUserData(data.data.data[1])
+        props.handleModal()
        }).catch(err =>{
-        // console.log(err.response.data.message);
         setError(err.response.data.message)
        })
-       console.log(error);
-        
     }
+
     const renderError = error.map(err =>{
         return(
             <h3>
@@ -75,12 +75,12 @@ export const SignUp = (props) => {
                 <div className='signUpButtons'>
                     <button onClick={handelSubmit}>Submit</button>
                     <button onClick={props.handleModal}>close</button>
+                    
                 </div>
                 <div className="errorUser">
                     {error && <h3>{renderError}</h3>}
                 </div>
             </div>
-
 
         </div>
     )

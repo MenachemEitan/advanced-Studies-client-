@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "../assets/img/atom.png";
+import { getToken } from "../auth/localStorage";
 import Icon from "../Layouts/Icon/Icon";
 import PopUp from "../Layouts/PopUp/PopUp";
 import { LoginModal } from "../modals/LoginModal";
@@ -8,6 +9,8 @@ import Navbar from "./Navbar";
 
 
 const Header = () => {
+
+  const token = getToken()
   return (
     <div className="header">
       <div className="row between">
@@ -21,18 +24,14 @@ const Header = () => {
             </div>
           </div>
           <Navbar />
- <LoginModal>
-  Login
- </LoginModal>
- <SignUpModal>
-  Sign Up
- </SignUpModal>
+          {!token && <LoginModal> Login </LoginModal>}
+          {!token && <SignUpModal>Sign Up</SignUpModal>}
         </div>
-        
-      
-         
-      
-        
+
+
+
+
+
 
         <PopUp
           modal={"modal-1"}

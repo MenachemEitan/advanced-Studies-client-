@@ -25,7 +25,7 @@ export const Login = (props) => {
                 </div>
                 <div className='loginButtons'>
                     <button>Submit</button>
-                    <button onClick={props.handleModal}>close</button>
+                    <button onClick={props.handleLoginModal}>close</button>
                 </div>
             </div>
 
