@@ -1,19 +1,17 @@
 import React from "react";
-import CircularProgressBar from "../Layouts/CircularProgressBar/CircularProgressBar";
 import { classesList } from "../mookData";
 import ClassCard from "./ClassCard";
-import Classes from "./Classes";
 
-const OpenClasses = () => {
+const MyClasses = () => {
   return (
-    <div className="open-classes ">
-      <div className="cards-title">Countinue learning</div>
-      <div className="row">
+    <div className="MyClasses">
+      <div className="cards-title">My Classes</div>
+      <div className="classes row">
         {classesList.map((singleClass) => (
           <ClassCard
             classTitle={singleClass.classTitle}
             photoUrl={singleClass.photoUrl}
-            isOpen={true}
+            isOpen={false}
             index={singleClass.index}
             precent={singleClass.precent}
             num={singleClass.num}
@@ -24,4 +22,4 @@ const OpenClasses = () => {
   );
 };
 
-export default OpenClasses;
+export default MyClasses;

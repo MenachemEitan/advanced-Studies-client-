@@ -1,19 +1,23 @@
 import React from "react";
 import Classes from "../components/Classes";
+import MyClasses from "../components/MyClasses";
+import PopularClasses from "../components/PopularClasses";
 import SearchBar from "../Layouts/SearchBar/SearchBar";
 
 const ClassesPage = () => {
   return (
     <div className="classes-page pad">
       <div className="classes-page-section col pad">
-        <h2 className="col">
-          <div>Search</div>
-          <div>Classes</div>
-        </h2>
+        <h3 className="col pad">
+          <b>
+            <div style={{ fontFamily: "Helvetica" }}>Search</div>
+            <div>Classes</div>
+          </b>
+        </h3>
         <SearchBar />
 
-        <Classes />
-        <Classes />
+        <MyClasses />
+        <PopularClasses />
       </div>
     </div>
   );

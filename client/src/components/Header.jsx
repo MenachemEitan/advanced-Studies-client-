@@ -9,7 +9,7 @@ const Header = () => {
       <div className="row between">
         <div className="row ">
           <div className="header-title">
-            <div className="row">
+            <div className="row pad">
               <h3>
                 <b>Advanced Studies</b>
               </h3>

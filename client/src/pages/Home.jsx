@@ -8,19 +8,17 @@ const Home = () => {
   return (
     <div>
       <div className="welcome-section row between">
-        <CircularProgressBar />
-        <h3 className="col left">
+        <h2 className="col left">
           <b>hellow ido</b>
           <b> good progress so far!</b>
           <h6>classes completed: 5</h6>
-        </h3>
+        </h2>
         <div className=" row right">
           <img src={homePagePhoto} className="homePagePhoto"></img>
         </div>
       </div>
-
-      <RecommendedClasses />
       <OpenClasses />
+      <RecommendedClasses />
     </div>
   );
 };

@@ -1,4 +1,4 @@
-.search-bar{
+/* .search-bar{
     border: none;
     background-color: #d0d0d0;
     border-left:none;
@@ -8,8 +8,8 @@
   }
   
   .search-bar-btn{
-    /* position: relative;
-    left: 0; */
+    position: relative;
+    left: 0;
     border:none;
     border-radius: 5px 0 0 5px;
   
@@ -21,5 +21,30 @@
   display:flex;
   height:60px;
   }
+   */
+
+   
+
+  .form-group {
+    position: relative;
+  }
   
+  .form-control {
+    padding-left: 3.5rem;
+    border: none;
+    background-color:#f3f3f3;
+    border-left:none;
+    border-radius: 5px;
+    min-height: 70px;
+    width: 280px;
+  }
+  
+  .search-icon {
+
+    position: absolute;
+    left: 15px;
+    top:0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
   

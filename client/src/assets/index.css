@@ -28,6 +28,12 @@
   
   
   :root {
+    --deg: 10deg;
+    --deg1: 20deg;
+    --deg2: 30deg;
+    --deg3: 40deg;
+    --deg4: 50deg;
+
     --space-xs: 4px;
     --space-sm: 8px;
     --space-md: 12px;
@@ -125,7 +131,7 @@
   .App{  
     height: 100%;
     max-width: 100%;
-    font-family: 'Metropolis-Regular', "Segoe UI", Helvetica Neue, Helvetica, sans-serif; 
+    font-family: "Segoe UI", Helvetica Neue, Helvetica, sans-serif; 
     /* display:flex;
     flex-direction: column; */
     margin: 0;
@@ -236,8 +242,8 @@
 
     }
 
-    .recommended-classes-title{
-      margin-left: 10px;
+    .cards-title{
+      margin-left: 20px;
       padding-bottom: 10px;
     }
 
