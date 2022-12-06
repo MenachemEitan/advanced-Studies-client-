@@ -3,8 +3,10 @@ import logo from "../assets/img/atom.png";
 import Icon from "../Layouts/Icon/Icon";
 import PopUp from "../Layouts/PopUp/PopUp";
 import { LoginModal } from "../modals/LoginModal";
-import { Login } from "./Login";
+import { SignUpModal } from "../modals/SignUpModal";
 import Navbar from "./Navbar";
+
+
 const Header = () => {
   return (
     <div className="header">
@@ -22,6 +24,9 @@ const Header = () => {
  <LoginModal>
   Login
  </LoginModal>
+ <SignUpModal>
+  Sign Up
+ </SignUpModal>
         </div>
         
       

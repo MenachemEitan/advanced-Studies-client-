@@ -1,4 +1,4 @@
-.loginModal{
+.signUpModal{
     position: fixed;
     background-color: #808080b8;
     inset: 0;
@@ -7,32 +7,32 @@
     display: flex;
     justify-content: center;
 }
-.loginContent{
+.signUpContent{
     display: block;
-    height: 20vh;
+    height: 30vh;
     width: 30vw;
     border: solid black;
     margin-top: auto;
     margin-bottom: auto;
-    background-color: white;
+    background-color: white;  
 }
-.loginTitle{
+.signUpTitle{
     margin: 1vh;
     text-align: center;
 }
-.loginInputs{
+.signUpInputs{
     display: flex;
     flex-direction: column;
     margin: 1vh;
     text-align: center;
 }
-.loginInputs input{
+.signUpInputs input{
     margin: 0.5vh;
 }
-.loginButtons{
+.signUpButtons{
     margin: 1vh;
     text-align: center;
 }
-.loginButtons button{
+.signUpButtons button{
     margin: 0.5vh;
 }

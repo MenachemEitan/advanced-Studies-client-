@@ -1,9 +1,8 @@
 import { useState } from "react"
 import { createPortal } from "react-dom"
-import { Login } from "../components/Login"
+import { SignUp } from "../components/SignUp"
 
-
-export const LoginModal = (props) => {
+export const SignUpModal = (props) => {
 
     const [isModal, setModal] = useState(false)
 
@@ -11,7 +10,7 @@ export const LoginModal = (props) => {
         setModal(!isModal)
     }
 
-    const Modal = () => createPortal(<Login handleModal={handleClick}/>, document.getElementById('modal'))
+    const Modal = () => createPortal(<SignUp handleModal={handleClick}/>, document.getElementById('modal'))
 
 
     return (
