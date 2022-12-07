@@ -13,7 +13,7 @@ export const SignUp = (props) => {
     const [lastName, setLastName] = useState('')
 
     const [error, setError] = useState([])
-    
+    console.log(error);
 
     const inputEmail = (e) => {
         setEmail(e.target.value);
@@ -45,6 +45,7 @@ export const SignUp = (props) => {
         storeToken(data.data.data[0])
         storeUserData(data.data.data[1])
         props.handleModal()
+        props.setLogin(true)
        }).catch(err =>{
         setError(err.response.data.message)
        })

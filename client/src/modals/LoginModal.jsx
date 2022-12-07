@@ -11,7 +11,7 @@ export const LoginModal = (props) => {
         setModal(!isModal)
     }
 
-    const Modal = () => createPortal(<Login handleLoginModal={handleClick}/>, document.getElementById('modal'))
+    const Modal = () => createPortal(<Login setLogin={props.setLogin} handleLoginModal={handleClick}/>, document.getElementById('modal'))
 
 
     return (

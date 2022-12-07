@@ -3,14 +3,15 @@ import { createPortal } from "react-dom"
 import { SignUp } from "../components/SignUp"
 
 export const SignUpModal = (props) => {
-
+    
     const [isModal, setModal] = useState(false)
 
     const handleClick = () => {
         setModal(!isModal)
+        
     }
 
-    const Modal = () => createPortal(<SignUp handleModal={handleClick}/>, document.getElementById('modal'))
+    const Modal = () => createPortal(<SignUp setLogin={props.setLogin} handleModal={handleClick}/>, document.getElementById('modal'))
 
 
     return (

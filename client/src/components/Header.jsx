@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useState } from "react";
 import logo from "../assets/img/atom.png";
-import { getToken } from "../auth/localStorage";
-import Icon from "../Layouts/Icon/Icon";
+import { forLogout, getToken } from "../auth/localStorage";
+
 import PopUp from "../Layouts/PopUp/PopUp";
 import { LoginModal } from "../modals/LoginModal";
 import { SignUpModal } from "../modals/SignUpModal";
@@ -10,7 +11,20 @@ import Navbar from "./Navbar";
 
 const Header = () => {
 
-  const token = getToken()
+const token = getToken()
+  const [isLogin,setLogin]= useState(false)
+
+  useEffect( ()=>{
+    if(token){
+      setLogin(true)
+    }
+},[isLogin])
+console.log(isLogin);
+  
+  const handleLogOut = ()=>{
+    forLogout()
+    setLogin(false)
+  }
   return (
     <div className="header">
       <div className="row between">
@@ -24,14 +38,10 @@ const Header = () => {
             </div>
           </div>
           <Navbar />
-          {!token && <LoginModal> Login </LoginModal>}
-          {!token && <SignUpModal>Sign Up</SignUpModal>}
+          {!isLogin && <LoginModal setLogin={setLogin}> Login </LoginModal>}
+          {!isLogin && <SignUpModal setLogin={setLogin}>Sign Up</SignUpModal>}
+          {isLogin && <button onClick={handleLogOut}>Log out</button>}
         </div>
-
-
-
-
-
 
         <PopUp
           modal={"modal-1"}
