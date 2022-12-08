@@ -2,6 +2,7 @@ import { useState } from 'react';
 import axios from "axios";
 import '../componentStyle/login.css'
 import { storeToken, storeUserData } from '../auth/localStorage';
+import { PostAuth,} from '../axios';
 
 export const Login = (props) => {
 // console.log(props);
@@ -22,25 +23,46 @@ export const Login = (props) => {
         password   
     }
 
-    const handelSubmit = ()=>{
-        axios.post(`http://localhost:4000/users/login`,userData).then(data =>{
-         
-         storeToken(data.data.data[0])
-         storeUserData(data.data.data[1])
-         props.handleLoginModal()
-         props.setLogin(true)
-        }).catch(err =>{  
-         setError(err.response.data.message)
-        })
+    const handelSubmit = async ()=>{
+       const post = await PostAuth('users/login',userData)
+        // console.log(post,'post error');
+        if (post.length != 0) {
+            setError(post)
+        }
+        else{
+            
+          props.handleLoginModal()
+         props.setLogin(true) 
+
+        }
      }
 
-     const renderError = error.map(err =>{
-        return(
+    //  const renderError = error.map(err =>{
+        
+    //     return(
+    //         <h3>
+    //             {err}
+    //         </h3>
+    //     )
+    // })
+    const renderError  = ()=>{
+        const returnValue = []
+        
+        if (error.length != 0) {
+
+          error.map(err =>{
+        returnValue.push(
             <h3>
                 {err}
             </h3>
         )
-    })
+    })  
+    return returnValue
+        }
+        else{
+            return
+        }
+    } 
    
 
     return (
@@ -58,7 +80,9 @@ export const Login = (props) => {
                     <button onClick={props.handleLoginModal}>close</button>
                 </div>
                 <div className="errorUser">
-                    {error && <h3>{renderError}</h3>}
+                    {/* {<h3>{renderError()}</h3>} */}
+                    
+                    {renderError()}
                 </div>
             </div>
             
