@@ -25,7 +25,7 @@ export const Login = (props) => {
 
     const handelSubmit = async ()=>{
        const post = await PostAuth('users/login',userData)
-        // console.log(post,'post error');
+        
         if (post.length != 0) {
             setError(post)
         }
@@ -37,14 +37,6 @@ export const Login = (props) => {
         }
      }
 
-    //  const renderError = error.map(err =>{
-        
-    //     return(
-    //         <h3>
-    //             {err}
-    //         </h3>
-    //     )
-    // })
     const renderError  = ()=>{
         const returnValue = []
         

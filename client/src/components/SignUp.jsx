@@ -3,6 +3,7 @@ import axios from "axios";
 
 import '../componentStyle/signUp.css'
 import { storeToken, storeUserData } from "../auth/localStorage";
+import { PostAuth } from "../axios";
 
 export const SignUp = (props) => {
 
@@ -13,7 +14,7 @@ export const SignUp = (props) => {
     const [lastName, setLastName] = useState('')
 
     const [error, setError] = useState([])
-    
+
 
     const inputEmail = (e) => {
         setEmail(e.target.value);
@@ -39,25 +40,36 @@ export const SignUp = (props) => {
         userName
     }
 
-    const handelSubmit = ()=>{
-       axios.post(`http://localhost:4000/users/signup`,userData).then(data =>{
-        
-        storeToken(data.data.data[0])
-        storeUserData(data.data.data[1])
-        props.handleModal()
-        props.setLogin(true)
-       }).catch(err =>{
-        setError(err.response.data.message)
-       })
+    const handelSubmit = async () => {
+        const post = await PostAuth(`users/signup`, userData)
+
+        if (post.length != 0) {
+            setError(post)
+        }
+        else {
+            props.handleModal()
+            props.setLogin(true)
+        }
     }
 
-    const renderError = error.map(err =>{
-        return(
-            <h3>
-                {err}
-            </h3>
-        )
-    })
+    const renderError = () => {
+        const returnValue = []
+
+        if (error.length != 0) {
+
+            error.map(err => {
+                returnValue.push(
+                    <h3>
+                        {err}
+                    </h3>
+                )
+            })
+            return returnValue
+        }
+        else {
+            return
+        }
+    }
 
     return (
         <div className="signUpModal">
@@ -76,10 +88,10 @@ export const SignUp = (props) => {
                 <div className='signUpButtons'>
                     <button onClick={handelSubmit}>Submit</button>
                     <button onClick={props.handleModal}>close</button>
-                    
+
                 </div>
                 <div className="errorUser">
-                    {error && <h3>{renderError}</h3>}
+                {renderError()}
                 </div>
             </div>
 

@@ -10,7 +10,9 @@ export const PostAuth =async (url,data)=>{
         storeUserData(data.data.data[1])
         
        }).catch(err =>{  
+        
         returnValue.push(...err.response.data.message)
        })
+       
        return returnValue
 }
