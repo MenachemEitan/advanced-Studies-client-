@@ -24,7 +24,7 @@ export const Login = (props) => {
 
     const handelSubmit = ()=>{
         axios.post(`http://localhost:4000/users/login`,userData).then(data =>{
-         console.log(data);
+         
          storeToken(data.data.data[0])
          storeUserData(data.data.data[1])
          props.handleLoginModal()
@@ -33,7 +33,7 @@ export const Login = (props) => {
          setError(err.response.data.message)
         })
      }
-console.log(error);
+
      const renderError = error.map(err =>{
         return(
             <h3>
@@ -41,7 +41,7 @@ console.log(error);
             </h3>
         )
     })
-    console.log(renderError);
+   
 
     return (
         <div className="loginModal">

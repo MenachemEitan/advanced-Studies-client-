@@ -19,7 +19,7 @@ const token = getToken()
       setLogin(true)
     }
 },[isLogin])
-console.log(isLogin);
+
   
   const handleLogOut = ()=>{
     forLogout()
