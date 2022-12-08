@@ -1,8 +1,8 @@
 import React from "react";
-import { classesList } from "../mookData";
+//
 import ClassCard from "./ClassCard";
 
-const MyClasses = () => {
+const MyClasses = ({ classesList }) => {
   return (
     <div className="MyClasses">
       <div className="cards-title">My Classes</div>

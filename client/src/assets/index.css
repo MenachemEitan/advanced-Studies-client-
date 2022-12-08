@@ -64,9 +64,19 @@
     --clr-success: #2ed47a;
     --clr-success-contrast: #ffffff;
     --clr-danger: #f7685b;
-    --clr-danger-contrast: #efeef1;
+    --clr-danger-contrast: #E0E0E0;
+  }
+
+  .black{
+    background-color:  #000000;
+    color:white;
   }
   
+  .gray{
+    background-color:  #E0E0E0;
+  }
+
+
   
   h1{
     font-size: var(--fs-xxl);
@@ -115,7 +125,7 @@
   }
   
   .top{
-    align-items:start;
+    align-items:flex-start;
   } 
 
 
@@ -125,6 +135,10 @@
 
   .pad{
     padding: 10px;
+  }
+
+  .marg{
+    margin:10px;
   }
   
   
@@ -139,14 +153,15 @@
   }
   
   .header{
-    /* position:fixed; */
+    position:fixed;
     width: 100%;
+    /* height: 80px; */
     background-color:#f5f6f8;
     display: flex;
     flex-direction: column;
     justify-content:center; 
     border-bottom: var(--fs-lg) solid #999999;
-   
+    z-index:10;
   }
 
   .header-img{
@@ -154,7 +169,13 @@
   }
 
   .card-img{
-    width: var(--img-xxs);
+    width: var(--img-xs);
+  }
+
+  .intro-img{
+    margin-top: 50px;
+    width: var(--img-xl);
+   
   }
 
   .navbar{
@@ -168,7 +189,13 @@
 
   .homePagePhoto{
     width:var(--img-lg);
-    margin-top: 100px;
+   
+  }
+
+
+
+  .page-top-pad{
+    padding-top: 100px;
   }
 
   .class-card{
@@ -266,10 +293,76 @@
     .classes{
       margin: auto;
       width: clamp(600px ,70vw , 800px);
-      
+      position: relative;
       /* border: 3px solid green; */
       padding: 10px;
     }
 
 
     
+.btn{
+  width:200px;
+  margin: 5px; 
+  border-radius:5px;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.09), 0 1px 1px rgba(0, 0, 0, 0.6),  0 1px 1px rgba(0, 0, 0, 0.4);
+  font-size:  var(--fs-sm);
+  font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  /* background-color: rgb(0, 0, 0); */
+  background-repeat: no-repeat;
+  background-position: 12px 11px;
+  cursor: pointer;
+}
+
+
+
+.class-page{
+
+  /* position: relative; */
+  
+ /* padding-top: 100px */
+  /* margin-left: auto;
+  margin-right: auto; */
+}
+
+.class-page-content{
+   position: relative; 
+  padding-bottom: 80px;
+  max-width: 600px;
+  margin: auto;
+}
+
+
+.qestion-text{
+  height: 200px;
+ display:flex;
+ flex-flow: column;
+ align-items: flex-start;
+}
+
+.qestion{
+  margin-top: 30px;
+}
+
+.submit-btn{
+  margin-top: 30px;
+}
+
+.back-btn{
+  position: absolute;
+  left: 0;
+  top: 75px;
+}
+
+.start-class-btn{
+
+  position: absolute;
+ right:0px;
+  bottom: 0px;
+  
+}

@@ -3,10 +3,11 @@ import Classes from "../components/Classes";
 import MyClasses from "../components/MyClasses";
 import PopularClasses from "../components/PopularClasses";
 import SearchBar from "../Layouts/SearchBar/SearchBar";
+import { classesList } from "../mookData";
 
 const ClassesPage = () => {
   return (
-    <div className="classes-page pad">
+    <div className="classes-page page-top-pad">
       <div className="classes-page-section col pad">
         <h3 className="col pad">
           <b>
@@ -16,8 +17,8 @@ const ClassesPage = () => {
         </h3>
         <SearchBar />
 
-        <MyClasses />
-        <PopularClasses />
+        <MyClasses classesList={classesList} />
+        <PopularClasses classesList={classesList} />
       </div>
     </div>
   );

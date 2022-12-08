@@ -2,11 +2,11 @@
  * =============================== */
 
  .user-btn{
-  /* position: fixed; */
-  position: absolute;
+  position: fixed;  
   top: 0;
   right: 0;
   padding: 15px;
+  z-index:11;
 }
 
  .modal {
@@ -22,6 +22,7 @@
   text-align: left;
   /* background: rgba(0,0,0, .9); */
   transition: opacity .25s ease;
+
   
   
 }
@@ -45,13 +46,13 @@
 }
 
 .modal-state:checked + .modal .modal__inner {
-  top: 0;
+  /* top: 0; */
 }
 
 .modal__inner {
   box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.09), 0 1px 1px rgba(0, 0, 0, 0.4);
-  position: absolute;
-  top: 40px;
+  position: fixed;
+  top: 85px;
   right: 0;
   min-width: 100px;
   width: 330px;
@@ -62,6 +63,7 @@
   border-radius: 5px;
   padding: 1em 2em;
   min-height: 140px;
+ 
   
 }
 

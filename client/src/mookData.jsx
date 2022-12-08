@@ -6,14 +6,18 @@ export const classesList = [
     index: 4,
     precent: 100,
     num: 12,
+    id: 1,
+    introPhoto: "intro-optics",
   },
   {
     subject: "",
     classTitle: "electricity",
-    photoUrl: "../assets/img/optics.png",
+    photoUrl: "../assets/img/electricity.png",
     index: 3,
     precent: 100,
     num: 43,
+    id: 2,
+    introPhoto: "intro-electricity",
   },
   {
     subject: "",
@@ -22,6 +26,8 @@ export const classesList = [
     index: 2,
     precent: 100,
     num: 50,
+    id: 3,
+    introPhoto: "intro-motion",
   },
   {
     subject: "",
@@ -30,5 +36,7 @@ export const classesList = [
     index: 1,
     precent: 100,
     num: 32,
+    id: 4,
+    introPhoto: "intro-fluid",
   },
 ];
