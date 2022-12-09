@@ -5,7 +5,7 @@ import PopUp from "../Layouts/PopUp/PopUp";
 import Navbar from "./Navbar";
 const Header = () => {
   return (
-    <div className="header">
+    <header className="header">
       <div className="row between">
         <div className="row ">
           <div className="header-title">
@@ -31,7 +31,7 @@ const Header = () => {
           </div>
         </PopUp>
       </div>
-    </div>
+    </header>
   );
 };
 

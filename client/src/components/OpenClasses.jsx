@@ -5,7 +5,7 @@ const OpenClasses = ({ classesList, choseClass }) => {
   return (
     <div className="open-classes ">
       <div className="cards-title">Countinue learning</div>
-      <div className="row">
+      <div className="classes row">
         {classesList.map((singleClass) => (
           <ClassCard
             choseClass={choseClass}

@@ -40,3 +40,34 @@ export const classesList = [
     introPhoto: "intro-fluid",
   },
 ];
+
+export const qestionList = [
+  {
+    qestionId: 1,
+    qestion: "what are water made of ?",
+    answers: ["air", "H2O muleculs", "hidrogen", "oxigen"],
+    rightAnswer: "H2O muleculs",
+    subject: "chemistry",
+  },
+  {
+    qestionId: 2,
+    qestion: "",
+    answers: [],
+    rightAnswer: "",
+    subject: "",
+  },
+  {
+    qestionId: 3,
+    qestion: "",
+    answers: [],
+    rightAnswer: "",
+    subject: "",
+  },
+  {
+    qestionId: 4,
+    qestion: "",
+    answers: [],
+    rightAnswer: "",
+    subject: "",
+  },
+];

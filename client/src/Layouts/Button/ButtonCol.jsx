@@ -1,26 +1,38 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
 import Icon from "../Icon/Icon";
 import "./Button.css";
-const ButtonCol = ({ link = ["/home"], icon, onClick, text, style }) => {
-  const [pressed, setPressed] = useState(true);
-  const color = pressed ? "blue" : "gray";
+const ButtonCol = ({
+  onClick,
+  text,
+  className,
+  qestionIndex,
+  setChosenAnswer,
+  chosenAnswer,
+  submit,
+  styles = { styles },
+  disabled,
+}) => {
+  let style = chosenAnswer == qestionIndex ? "gray" : "";
+
+  if (submit) {
+    console.log(submit === "right");
+    if (chosenAnswer == qestionIndex) {
+      style = submit === "right" ? styles : "red";
+    }
+  }
+
   const handleClick = () => {
-    // onClick();
-    setPressed(!pressed);
-    console.log(pressed);
+    setChosenAnswer(qestionIndex);
   };
   return (
-    <div
-      className={`btn-col  ${color} row between`}
+    <button
+      className={`btn-link ${className} row`}
       onClick={handleClick}
-      style={{ backgroundColor: color }}
+      style={{ backgroundColor: style }}
+      disabled={disabled}
     >
-      <Link to={link} style={style} className={"btn-link row"}>
-        <Icon Icon={icon} />
-        <h6>{text}</h6>
-      </Link>
-    </div>
+      <div className="text">{text}</div>
+    </button>
   );
 };
 

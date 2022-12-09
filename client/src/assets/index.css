@@ -47,12 +47,12 @@
     --fs-xxl:   clamp(2rem, 2.5vw, 4.5rem);
 
     --img-xxs:   clamp(20px, 15vw, 100px);
-    --img-xs:   clamp(50px, 15vw, 200px);
-    --img-sm:  clamp(75px, 20vw, 250px);
-    --img-md:  clamp(100px, 25vw, 300px);
-    --img-lg:  clamp(150px, 30vw, 350px); 
-    --img-xl:  clamp(200px, 35vw, 400px);
-    --img-xxl:   clamp(250px, 40vw, 450px);
+    --img-xs:   clamp(180px, 25vw, 250px);
+    --img-sm:  clamp(175px, 20vw, 250px);
+    --img-md:  clamp(200px, 25vw, 300px);
+    --img-lg:  clamp(250px, 30vw, 350px); 
+    --img-xl:  clamp(300px, 35vw, 400px);
+    --img-xxl:   clamp(350px, 40vw, 450px);
 
     --radius-sm: 4px;
     
@@ -292,7 +292,7 @@
 
     .classes{
       margin: auto;
-      width: clamp(600px ,70vw , 800px);
+      width: clamp(200px ,70vw , 800px);
       position: relative;
       /* border: 3px solid green; */
       padding: 10px;
@@ -330,6 +330,13 @@
   margin-right: auto; */
 }
 
+.content{
+  position: relative; 
+  padding-bottom: 80px;
+  max-width: 600px;
+  margin: auto;
+}
+
 .class-page-content{
    position: relative; 
   padding-bottom: 80px;
@@ -360,9 +367,44 @@
 }
 
 .start-class-btn{
-
   position: absolute;
- right:0px;
+  right:0px;
   bottom: 0px;
-  
+}
+
+
+@media (width < 768px)  {
+  .header-title{
+      display:none;
+  }
+
+  .card2{
+    width: 90%;
+    height: 50px;
+    margin:5px;
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+   }
+
+   .cards-container{
+    display:flex;
+    flex-direction:column
+   }
+
+   .classes{
+    width: clamp(400px ,100vw , 800px);
+    display:flex;
+    flex-direction:column;
+    margin:0;
+   }
+
+    .welcome-section{
+    /* margin: auto; */
+    width: clamp(100px ,90vw , 800px);
+  }
+  header{
+    height: 70px;
+  }
+
 }

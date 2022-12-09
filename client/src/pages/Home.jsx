@@ -18,7 +18,7 @@ const Home = () => {
   };
 
   return (
-    <div className="home-page page-top-pad">
+    <div className="home-page page-top-pad ">
       {toggledClass ? (
         <ClassPage
           currntClass={currntClass}

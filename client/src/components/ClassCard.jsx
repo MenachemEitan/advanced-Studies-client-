@@ -25,7 +25,10 @@ const ClassCard = ({
         choseClass(id);
       }}
     >
-      <div className="class-title row pad"> {classTitle}</div>
+      <div className="class-title row pad" style={{ width: "100px" }}>
+        {" "}
+        {classTitle}
+      </div>
       {isOpen && (
         <CircularProgressBar index={index} num={num} precent={precent} />
       )}
