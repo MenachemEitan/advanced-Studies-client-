@@ -5,17 +5,10 @@ import OpenClasses from "../components/OpenClasses";
 import { classesList } from "../mookData";
 import { useState } from "react";
 import ClassPage from "./ClassPage";
+import useClass from "../Hooks/useClass";
+
 const Home = () => {
-  const [currntClass, setCurrntClass] = useState("");
-  const [toggledClass, setToggledClass] = useState(false);
-  const choseClass = (id) => {
-    const filteredList = classesList.filter((singleClass) => {
-      return singleClass.id === id;
-    });
-    const filteredClass = filteredList[0];
-    setCurrntClass(filteredClass);
-    setToggledClass(!toggledClass);
-  };
+  const { choseClass, currntClass, toggledClass, setToggledClass } = useClass();
 
   return (
     <div className="home-page page-top-pad ">
@@ -28,7 +21,7 @@ const Home = () => {
         <>
           <div className="welcome-section row between ">
             <h2 className="col left">
-              <b>hellow ido</b>
+              <b>Hello ido</b>
               <b> good progress so far!</b>
               <h6>classes completed: 5</h6>
             </h2>

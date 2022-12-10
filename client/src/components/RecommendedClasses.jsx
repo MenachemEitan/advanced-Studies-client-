@@ -1,12 +1,25 @@
 import React from "react";
-import Classes from "./Classes";
+import ClassCard from "./ClassCard";
 
-const RecommendedClasses = () => {
+const RecommendedClasses = ({ choseClass, classesList }) => {
   return (
     <div className="recommended-classes ">
       <div className="cards-title">recommended for you</div>
 
-      <Classes />
+      <div className="classes row">
+        {classesList.map((singleClass) => (
+          <ClassCard
+            choseClass={choseClass}
+            id={singleClass.id}
+            classTitle={singleClass.classTitle}
+            photoUrl={singleClass.photoUrl}
+            isOpen={false}
+            index={singleClass.index}
+            precent={singleClass.precent}
+            num={singleClass.num}
+          />
+        ))}
+      </div>
     </div>
   );
 };

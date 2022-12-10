@@ -1,5 +1,4 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import CircularProgressBar from "../Layouts/CircularProgressBar/CircularProgressBar";
 
 const ClassCard = ({
@@ -14,10 +13,6 @@ const ClassCard = ({
 }) => {
   const img = require(`../assets/img/${classTitle}.png`);
 
-  // const pickClass = (id) => {
-  //     choseClass(id);
-  // }
-
   return (
     <div
       className="card2 pad col"
@@ -26,7 +21,6 @@ const ClassCard = ({
       }}
     >
       <div className="class-title row pad" style={{ width: "100px" }}>
-        {" "}
         {classTitle}
       </div>
       {isOpen && (

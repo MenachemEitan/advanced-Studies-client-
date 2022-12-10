@@ -195,7 +195,7 @@
 
 
   .page-top-pad{
-    padding-top: 100px;
+    padding-top: clamp(75px, 10vh, 100px);
   }
 
   .class-card{
@@ -289,7 +289,6 @@
       padding-bottom: 10px;
     }
 
-
     .classes{
       margin: auto;
       width: clamp(200px ,70vw , 800px);
@@ -297,7 +296,6 @@
       /* border: 3px solid green; */
       padding: 10px;
     }
-
 
     
 .btn{
@@ -319,17 +317,6 @@
   cursor: pointer;
 }
 
-
-
-.class-page{
-
-  /* position: relative; */
-  
- /* padding-top: 100px */
-  /* margin-left: auto;
-  margin-right: auto; */
-}
-
 .content{
   position: relative; 
   padding-bottom: 80px;
@@ -338,10 +325,15 @@
 }
 
 .class-page-content{
-   position: relative; 
+  position: relative; 
   padding-bottom: 80px;
   max-width: 600px;
   margin: auto;
+  
+}
+
+.class-page{
+  width: 100%;
 }
 
 
@@ -354,6 +346,7 @@
 
 .qestion{
   margin-top: 30px;
+  width: clamp(300px, 50vw , 600px)
 }
 
 .submit-btn{
@@ -361,15 +354,18 @@
 }
 
 .back-btn{
-  position: absolute;
-  left: 0;
-  top: 75px;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .start-class-btn{
   position: absolute;
   right:0px;
   bottom: 0px;
+}
+
+.custom-btn{
+  height: clamp(41px, 2vh, 45px);
 }
 
 

@@ -1,28 +1,40 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Questions from "../components/Questions";
 import Button from "../Layouts/Button/Button";
 import Img from "../Layouts/Img/Img";
+import { qestionList } from "../mookData";
 
 const ClassPage = ({ setToggledClass, currntClass }) => {
   const img = require(`../assets/img/${currntClass.introPhoto}.png`);
   const [toggleQuestions, setToggleQuestions] = useState(true);
+  const [count, setCount] = useState(0);
+  const [qestion, setQuestion] = useState(qestionList[0]);
+  const [previousBtnDisplay, setPreviousBtnDisplay] = useState("none");
+
+  useEffect(() => {
+    setQuestion(qestionList[count]);
+    if (count > 0) {
+      setPreviousBtnDisplay("block");
+    } else {
+      setPreviousBtnDisplay("none");
+    }
+  }, [count]);
 
   const handleQuestions = () => {
     setToggleQuestions(!toggleQuestions);
   };
   return (
-    <div className="class-page ">
+    <div style={{ width: "100%" }}>
+      <Button
+        icon={"chevron-left"}
+        onClick={(toggledClass) => {
+          setToggledClass(!toggledClass);
+        }}
+        text="Back to Classes"
+        className="back-btn"
+      ></Button>
       {toggleQuestions ? (
         <>
-          {" "}
-          <Button
-            icon={"chevron-left"}
-            onClick={(toggledClass) => {
-              setToggledClass(!toggledClass);
-            }}
-            text="Back to Classes"
-            className="back-btn"
-          ></Button>
           <div className="class-page-content col">
             <div
               className="title"
@@ -67,7 +79,13 @@ const ClassPage = ({ setToggledClass, currntClass }) => {
           </div>
         </>
       ) : (
-        <Questions></Questions>
+        <Questions
+          setCount={setCount}
+          count={count}
+          qestion={qestion}
+          setQuestion={setQuestion}
+          previousBtnDisplay={previousBtnDisplay}
+        ></Questions>
       )}
     </div>
   );

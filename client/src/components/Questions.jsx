@@ -2,23 +2,25 @@ import React, { useState } from "react";
 import Button from "../Layouts/Button/Button";
 import ButtonCol from "../Layouts/Button/ButtonCol";
 
-import { qestionList } from "../mookData";
-
-const Questions = ({ text, answers }) => {
+const Questions = ({
+  text,
+  answers,
+  qestion,
+  setCount,
+  count,
+  setQuestion,
+  previousBtnDisplay,
+}) => {
   const img = require(`../assets/img/motion.png`);
-  const question = qestionList[0];
-  const [chosenAnswer, setChosenAnswer] = useState();
+
+  const [chosenAnswer, setChosenAnswer] = useState("");
   const [submit, setSubmit] = useState("");
   const [styles, setStyles] = useState("");
   const [answerSubmited, setAnswerSubmited] = useState(false);
-  const [disabled, setDisabled] = useState(true);
-
-  console.log(question);
+  const [disabled, setDisabled] = useState(false);
 
   const onSubmit = () => {
-    console.log(question.answers[chosenAnswer], question.rightAnswer);
-    if (question.answers[chosenAnswer] == question.rightAnswer) {
-      console.log("right");
+    if (qestion.answers[chosenAnswer] == qestion.rightAnswer) {
       setSubmit("right");
       setStyles("var(--clr-success)");
     } else {
@@ -37,22 +39,43 @@ const Questions = ({ text, answers }) => {
     setSubmit("");
   };
 
+  const counter = () => {
+    setCount(count + 1);
+    console.log(count);
+    setSubmit(false);
+    setAnswerSubmited(false);
+    setDisabled(false);
+    setSubmit("");
+    setChosenAnswer("");
+  };
+
+  const goBack = () => {
+    if (count > 0) {
+      setCount(count - 1);
+      console.log(count);
+      setSubmit(false);
+      setAnswerSubmited(false);
+      setSubmit("");
+      setChosenAnswer("");
+    }
+  };
+
   return (
     <div className="class-page-content">
       <img src={img}></img>
-      <div className="qestion row between">
+      <div className="row between">
         <div className="col left">
           <div className="qestion-text">
             <h4>
               <b>Qestion 1</b>
             </h4>
-            <p>{question.qestion}</p>
+            <p>{qestion.qestion}</p>
           </div>
         </div>
 
         <div className="col right">
           <ButtonCol
-            text={question.answers[0]}
+            text={qestion.answers[0]}
             className={"btn gray"}
             qestionIndex={"0"}
             setChosenAnswer={setChosenAnswer}
@@ -62,7 +85,7 @@ const Questions = ({ text, answers }) => {
             disabled={disabled}
           />
           <ButtonCol
-            text={question.answers[1]}
+            text={qestion.answers[1]}
             className={"btn gray"}
             qestionIndex={"1"}
             setChosenAnswer={setChosenAnswer}
@@ -72,7 +95,7 @@ const Questions = ({ text, answers }) => {
             disabled={disabled}
           />
           <ButtonCol
-            text={question.answers[2]}
+            text={qestion.answers[2]}
             className={"btn gray"}
             qestionIndex={"2"}
             setChosenAnswer={setChosenAnswer}
@@ -82,7 +105,7 @@ const Questions = ({ text, answers }) => {
             disabled={disabled}
           />
           <ButtonCol
-            text={question.answers[3]}
+            text={qestion.answers[3]}
             className={"btn gray"}
             qestionIndex={"3"}
             setChosenAnswer={setChosenAnswer}
@@ -96,7 +119,7 @@ const Questions = ({ text, answers }) => {
       <div className="submit-btn col right">
         {answerSubmited ? (
           <>
-            <div className="row">
+            <div className="row  right">
               {submit === "wrong" && (
                 <Button
                   icon={"redo"}
@@ -106,17 +129,32 @@ const Questions = ({ text, answers }) => {
                 ></Button>
               )}
 
-              <button className="btn black" onClick={postSubmit}>
+              <button className="btn black" onClick={counter}>
                 Next qestion
               </button>
             </div>
           </>
         ) : (
-          <button className="btn black" onClick={onSubmit}>
-            submit
-          </button>
+          <>
+            <div className="row right">
+              <button
+                className="btn black"
+                onClick={goBack}
+                style={{ display: previousBtnDisplay }}
+              >
+                previous qestion
+              </button>
+              <button
+                className="btn black"
+                onClick={onSubmit}
+                disabled={!chosenAnswer}
+              >
+                submit
+              </button>
+            </div>
+          </>
         )}
-        <h3>{submit}</h3>
+        {/* <h3>{submit}</h3> */}
       </div>
     </div>
   );
