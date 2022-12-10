@@ -24,17 +24,18 @@ const ClassPage = ({ setToggledClass, currntClass }) => {
     setToggleQuestions(!toggleQuestions);
   };
   return (
-    <div style={{ width: "100%" }}>
-      <Button
-        icon={"chevron-left"}
-        onClick={(toggledClass) => {
-          setToggledClass(!toggledClass);
-        }}
-        text="Back to Classes"
-        className="back-btn"
-      ></Button>
+    <div className="class-page ">
+       <Button
+            icon={"chevron-left"}
+            onClick={(toggledClass) => {
+              setToggledClass(!toggledClass);
+            }}
+            text="Back to Classes"
+            className="back-btn"
+          ></Button>
       {toggleQuestions ? (
         <>
+         
           <div className="class-page-content col">
             <div
               className="title"

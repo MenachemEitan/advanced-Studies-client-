@@ -1,9 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useState } from "react";
 import logo from "../assets/img/atom.png";
-import Icon from "../Layouts/Icon/Icon";
+import { forLogout, getToken } from "../auth/localStorage";
+import axios from "axios";
 import PopUp from "../Layouts/PopUp/PopUp";
+import { LoginModal } from "../modals/LoginModal";
+import { SignUpModal } from "../modals/SignUpModal";
 import Navbar from "./Navbar";
+
 const Header = () => {
+  const token = getToken();
+  const [isLogin, setLogin] = useState(false);
+
+  useEffect(() => {
+    if (token) {
+      setLogin(true);
+    }
+  }, [isLogin]);
+
+  const handleLogOut = () => {
+    forLogout();
+    setLogin(false);
+  };
   return (
     <header className="header">
       <div className="row between">
@@ -17,6 +35,9 @@ const Header = () => {
             </div>
           </div>
           <Navbar />
+          {!isLogin && <LoginModal setLogin={setLogin}> Login </LoginModal>}
+          {!isLogin && <SignUpModal setLogin={setLogin}>Sign Up</SignUpModal>}
+          {isLogin && <button onClick={handleLogOut}>Log out</button>}
         </div>
 
         <PopUp

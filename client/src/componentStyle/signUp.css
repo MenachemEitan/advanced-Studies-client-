@@ -1,0 +1,38 @@
+.signUpModal{
+    position: fixed;
+    background-color: #808080b8;
+    inset: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+.signUpContent{
+    display: block;
+    height: 32vh;
+    width: 30vw;
+    border: solid black;
+    margin-top: auto;
+    margin-bottom: auto;
+    background-color: white;  
+}
+.signUpTitle{
+    margin: 1vh;
+    text-align: center;
+}
+.signUpInputs{
+    display: flex;
+    flex-direction: column;
+    margin: 1vh;
+    text-align: center;
+}
+.signUpInputs input{
+    margin: 0.5vh;
+}
+.signUpButtons{
+    margin: 1vh;
+    text-align: center;
+}
+.signUpButtons button{
+    margin: 0.5vh;
+}

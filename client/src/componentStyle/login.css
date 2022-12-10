@@ -1,0 +1,38 @@
+.loginModal{
+    position: fixed;
+    background-color: #808080b8;
+    inset: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+.loginContent{
+    display: block;
+    height: 20vh;
+    width: 30vw;
+    border: solid black;
+    margin-top: auto;
+    margin-bottom: auto;
+    background-color: white;
+}
+.loginTitle{
+    margin: 1vh;
+    text-align: center;
+}
+.loginInputs{
+    display: flex;
+    flex-direction: column;
+    margin: 1vh;
+    text-align: center;
+}
+.loginInputs input{
+    margin: 0.5vh;
+}
+.loginButtons{
+    margin: 1vh;
+    text-align: center;
+}
+.loginButtons button{
+    margin: 0.5vh;
+}

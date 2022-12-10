@@ -11,8 +11,8 @@ const ClassCard = ({
   choseClass,
   id,
 }) => {
-  const img = require(`../assets/img/${classTitle}.png`);
-
+  // const img = require(`../assets/img/${classTitle}.png`);
+  console.log("precent =>", precent);
   return (
     <div
       className="card2 pad col"
@@ -27,7 +27,7 @@ const ClassCard = ({
         <CircularProgressBar index={index} num={num} precent={precent} />
       )}
 
-      <img src={img} alt="" className="card-img pad" />
+      {/* <img src={img} alt="" className="card-img pad" /> */}
     </div>
   );
 };
