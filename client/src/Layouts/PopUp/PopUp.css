@@ -3,9 +3,9 @@
 
  .user-btn{
   position: fixed;  
-  top: 0;
-  right: 0;
-  padding: 15px;
+  top: clamp(8px, 1.3vh, 10px);
+  right: 5px;
+  /* padding: 15px; */
   z-index:11;
 }
 
@@ -52,7 +52,7 @@
 .modal__inner {
   box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.09), 0 1px 1px rgba(0, 0, 0, 0.4);
   position: fixed;
-  top: 85px;
+  top: calc(var(--fs-xxl) + 40px);
   right: 0;
   min-width: 100px;
   width: 330px;
@@ -100,13 +100,5 @@
   transform: rotate(-45deg);
 }
 
-/* @media screen and (max-width: 768px) {
-	
-  .modal__inner {
-    width: 90%;
-    height: 90%;
-    box-sizing: border-box;
-  }
-} */
 
 

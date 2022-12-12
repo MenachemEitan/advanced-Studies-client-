@@ -9,21 +9,24 @@
 }
 .signUpContent{
     display: block;
-    height: 32vh;
-    width: 30vw;
-    border: solid black;
+    height: clamp(400px,  60vh, 450px);
+    /* width: 30vw; */
+    padding: 20px;
+    border-radius: 5px;
+   
     margin-top: auto;
     margin-bottom: auto;
-    background-color: white;  
+    background-color: white;
+    position: relative;
 }
 .signUpTitle{
-    margin: 1vh;
+    padding:10px;
     text-align: center;
 }
 .signUpInputs{
     display: flex;
     flex-direction: column;
-    margin: 1vh;
+    padding:10px;
     text-align: center;
 }
 .signUpInputs input{

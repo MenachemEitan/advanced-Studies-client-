@@ -35,9 +35,6 @@ const Header = () => {
             </div>
           </div>
           <Navbar />
-          {!isLogin && <LoginModal setLogin={setLogin}> Login </LoginModal>}
-          {!isLogin && <SignUpModal setLogin={setLogin}>Sign Up</SignUpModal>}
-          {isLogin && <button onClick={handleLogOut}>Log out</button>}
         </div>
 
         <PopUp
@@ -48,7 +45,13 @@ const Header = () => {
         >
           <div className="col left pad">
             <div className="pad">Profile</div>
-            <div className="pad">Logout</div>
+            {!isLogin && <LoginModal setLogin={setLogin}> Login </LoginModal>}
+            {!isLogin && <SignUpModal setLogin={setLogin}>Sign Up</SignUpModal>}
+            {isLogin && (
+              <div className="pad" onClick={handleLogOut}>
+                Log out
+              </div>
+            )}
           </div>
         </PopUp>
       </div>

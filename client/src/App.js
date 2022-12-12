@@ -16,7 +16,7 @@ export const App = () => {
           <Route path="/home" element={<Home />} />
           <Route path="/classes" element={<ClassesPage />} />
           <Route path="/class" element={<ClassPage />} />
-          {/* <Route path="/login" element={<Login/>} /> */}
+          {/* <Route path="/login" element={<Login />} /> */}
         </Routes>
       </UserProvider>
     </div>

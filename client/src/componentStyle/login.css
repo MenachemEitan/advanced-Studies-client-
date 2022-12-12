@@ -1,30 +1,41 @@
 .loginModal{
     position: fixed;
-    background-color: #808080b8;
+    background-color: #d0ceceb8;
     inset: 0;
     height: 100vh;
     width: 100vw;
     display: flex;
     justify-content: center;
+   
 }
 .loginContent{
     display: block;
-    height: 20vh;
+    height: clamp(200px, 22vh, 270px);
     width: 30vw;
-    border: solid black;
+    border-radius: 5px;
     margin-top: auto;
     margin-bottom: auto;
     background-color: white;
+    position: relative;
 }
 .loginTitle{
     margin: 1vh;
     text-align: center;
 }
-.loginInputs{
+.loginContainer{
     display: flex;
     flex-direction: column;
-    margin: 1vh;
     text-align: center;
+}
+.loginInputs{
+    border: 1.3px solid #ccc;
+    height: 35px;
+    width: 300px;
+    padding:12px;
+    margin: 5px;
+    border-radius: 4px;
+    margin-left: auto;
+    margin-right: auto;
 }
 .loginInputs input{
     margin: 0.5vh;
@@ -32,6 +43,7 @@
 .loginButtons{
     margin: 1vh;
     text-align: center;
+   
 }
 .loginButtons button{
     margin: 0.5vh;

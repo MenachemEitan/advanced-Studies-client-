@@ -1,31 +1,60 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { baseUrl } from "../axiosController";
 import Questions from "../components/Questions";
+import EndgPage from "../components/EndPage";
 import Button from "../Layouts/Button/Button";
 import Img from "../Layouts/Img/Img";
 import { qestionList } from "../mookData";
 
 const ClassPage = ({ setToggledClass, currntClass }) => {
-  const img = require(`../assets/img/${currntClass.introPhoto}.png`);
+  // const img = require(`../assets/img/${currntClass.introPhoto}.png`);
   const [toggleQuestions, setToggleQuestions] = useState(true);
   const [count, setCount] = useState(0);
-  const [qestion, setQuestion] = useState(qestionList[0]);
+  const [classQuestions, getClassQuestions] = useState();
+  const [qestion, setQuestion] = useState();
   const [previousBtnDisplay, setPreviousBtnDisplay] = useState("none");
-
+  const [classEnded, setClassEnded] = useState(false);
   useEffect(() => {
-    setQuestion(qestionList[count]);
     if (count > 0) {
       setPreviousBtnDisplay("block");
     } else {
       setPreviousBtnDisplay("none");
     }
+    if (count >= classQuestions?.length) {
+      setClassEnded(true);
+    }
   }, [count]);
+
+  useEffect(() => {
+    getQuestions();
+  }, []);
+
+  const getQuestions = async () => {
+    const classQuestionsTemp = [];
+
+    const resp = await axios.get(`${baseUrl}/class/${currntClass.id}`);
+    const questionsIds = await resp.data.data.question;
+
+    for (let questionId of questionsIds) {
+      const temp = await axios.get(`${baseUrl}/class/question/${questionId}`);
+      classQuestionsTemp.push(temp.data.data);
+    }
+    getClassQuestions(classQuestionsTemp);
+  };
 
   const handleQuestions = () => {
     setToggleQuestions(!toggleQuestions);
   };
   return (
-    <div className="class-page ">
-       <Button
+    // <div>{currntClass.className}</div>
+    <div className="class-page fade-in">
+      {classEnded ? (
+        <EndgPage />
+      ) : (
+        <>
+          {" "}
+          <Button
             icon={"chevron-left"}
             onClick={(toggledClass) => {
               setToggledClass(!toggledClass);
@@ -33,60 +62,47 @@ const ClassPage = ({ setToggledClass, currntClass }) => {
             text="Back to Classes"
             className="back-btn"
           ></Button>
-      {toggleQuestions ? (
-        <>
-         
-          <div className="class-page-content col">
-            <div
-              className="title"
-              style={{ fontFamily: "Helvetica", fontWeight: 100 }}
-            >
-              <h2>
-                <b>{currntClass.classTitle}</b>
-              </h2>
-            </div>
-            <Img src={img} className={"intro-img"}></Img>
-            <div className="row pad">
-              <p>
-                This lesson is about kinematics and two-dimensional motion. Use
-                illustrations and animations to help you get to the answers.
-              </p>
-              <div className="col">
-                <div className="questions">Questions</div>
-                <div className="row">
-                  <button className="btn" style={{ width: "90px" }}>
-                    level 1
-                  </button>
-                  <button className="btn" style={{ width: "90px" }}>
-                    level 2
-                  </button>
+          {toggleQuestions ? (
+            <>
+              <div className="class-page-content col">
+                <div
+                  className="title"
+                  style={{ fontFamily: "Helvetica", fontWeight: 100 }}
+                >
+                  <h2>
+                    <b>{currntClass.className}</b>
+                  </h2>
                 </div>
-                <div className="row">
-                  <button className="btn" style={{ width: "90px" }}>
-                    level 3
-                  </button>
-                  <button className="btn" style={{ width: "90px" }}>
-                    level 4
-                  </button>
+                {/* <Img src={img} className={"intro-img"}></Img> */}
+                <div className="pad">
+                  <p>
+                    Behavioral psychology is the study of observable behavior
+                    and how it is influenced by environmental factors. In this
+                    class, we will explore the theories and principles of
+                    behavioral psychology and learn how they can be applied in
+                    real-world settings. We will also examine various techniques
+                    used in the field, such as operant and classical
+                    conditioning, and learn how they can be used to shape and
+                    modify behavior. By the end of the class, you should have a
+                    solid understanding of this branch of psychology.
+                  </p>
                 </div>
+                <button className="pad btn black" onClick={handleQuestions}>
+                  Start Class
+                </button>
               </div>
-              <button
-                className="start-class-btn btn black"
-                onClick={handleQuestions}
-              >
-                Start Class
-              </button>
-            </div>
-          </div>
+            </>
+          ) : (
+            <Questions
+              setCount={setCount}
+              count={count}
+              qestion={qestion}
+              setQuestion={setQuestion}
+              previousBtnDisplay={previousBtnDisplay}
+              classQuestions={classQuestions}
+            ></Questions>
+          )}{" "}
         </>
-      ) : (
-        <Questions
-          setCount={setCount}
-          count={count}
-          qestion={qestion}
-          setQuestion={setQuestion}
-          previousBtnDisplay={previousBtnDisplay}
-        ></Questions>
       )}
     </div>
   );

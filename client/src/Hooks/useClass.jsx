@@ -1,11 +1,10 @@
 import { useState } from "react";
-import { classesList } from "../mookData";
 
 const useClass = () => {
   const [currntClass, setCurrntClass] = useState("");
   const [toggledClass, setToggledClass] = useState(false);
 
-  const choseClass = (id) => {
+  const choseClass = (id, classesList) => {
     const filteredList = classesList.filter((singleClass) => {
       return singleClass.id === id;
     });

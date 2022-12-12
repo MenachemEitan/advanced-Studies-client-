@@ -4,6 +4,7 @@ import axios from "axios";
 import "../componentStyle/signUp.css";
 import { storeToken, storeUserData } from "../auth/localStorage";
 import { PostAuth } from "../axiosController";
+import Button from "../Layouts/Button/Button";
 
 export const SignUp = (props) => {
   const [email, setEmail] = useState("");
@@ -69,19 +70,47 @@ export const SignUp = (props) => {
           <h3>Sign Up</h3>
         </div>
         <div className="signUpInputs">
-          <input type="text" placeholder="Email" onChange={inputEmail} />
           <input
+            className="loginInputs"
+            type="text"
+            placeholder="Email"
+            onChange={inputEmail}
+          />
+          <input
+            className="loginInputs"
             type="text"
             placeholder="First name"
             onChange={inputFirstName}
           />
-          <input type="text" placeholder="Last name" onChange={inputLastName} />
-          <input type="text" placeholder="Password" onChange={inputPassword} />
-          <input type="text" placeholder="User Name" onChange={inputUserName} />
+          <input
+            className="loginInputs"
+            type="text"
+            placeholder="Last name"
+            onChange={inputLastName}
+          />
+          <input
+            className="loginInputs"
+            type="text"
+            placeholder="Password"
+            onChange={inputPassword}
+          />
+          <input
+            className="loginInputs"
+            type="text"
+            placeholder="User Name"
+            onChange={inputUserName}
+          />
         </div>
         <div className="signUpButtons">
-          <button onClick={handelSubmit}>Submit</button>
-          <button onClick={props.handleModal}>close</button>
+          <button onClick={handelSubmit} className="btn black">
+            Submit
+          </button>
+
+          <Button
+            icon={"times"}
+            className="closeBtn"
+            onClick={props.handleModal}
+          ></Button>
         </div>
         <div className="errorUser">{renderError()}</div>
       </div>

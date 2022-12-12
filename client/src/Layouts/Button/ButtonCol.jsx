@@ -15,7 +15,6 @@ const ButtonCol = ({
   let style = chosenAnswer == qestionIndex ? "gray" : "";
 
   if (submit) {
-    console.log(submit === "right");
     if (chosenAnswer == qestionIndex) {
       style = submit === "right" ? styles : "red";
     }

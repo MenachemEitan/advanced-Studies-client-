@@ -4,36 +4,23 @@ import { baseUrl } from "../axiosController";
 
 import ClassCard from "./ClassCard";
 
-const PopularClasses = ({ classesList, choseClass }) => {
-  const [popClasses, setPopClasses] = useState([]);
-
-  useEffect(() => {
-    getClasses();
-  }, []);
-
-  const getClasses = async () => {
-    if (!popClasses.length) {
-      const temp = await axios.get(`${baseUrl}/class/popularClass/get`);
-      setPopClasses(temp.data.data);
-      console.log(temp);
-    }
-  };
-
-  console.log("popClasses=>", popClasses);
+const PopularClasses = ({ popClasses, choseClass }) => {
   return (
     <div className="PopularClasses ">
-      <div className="cards-title">PopularClasses</div>
+      <div className="cards-title">Popular Classes</div>
       <div className="classes row">
         {popClasses.map((singleClass) => (
           <ClassCard
-            // choseClass={choseClass}
-            // id={singleClass.id}
+            classes={popClasses}
+            singleClass={singleClass}
+            choseClass={choseClass}
+            id={singleClass.id}
             classTitle={singleClass.className}
-            // photoUrl={singleClass.photoUrl}
-            // isOpen={false}
-            // index={singleClass.index}
-            // precent={singleClass.precent}
-            // num={singleClass.num}
+            photoUrl={singleClass.photoUrl}
+            isOpen={false}
+            index={singleClass.index}
+            precent={singleClass.precent}
+            num={singleClass.num}
           />
         ))}
       </div>

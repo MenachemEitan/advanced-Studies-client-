@@ -2,6 +2,7 @@ import React from "react";
 import CircularProgressBar from "../Layouts/CircularProgressBar/CircularProgressBar";
 
 const ClassCard = ({
+  classes,
   classTitle,
   index,
   num,
@@ -10,14 +11,15 @@ const ClassCard = ({
   photoUrl,
   choseClass,
   id,
+  singleClass = [""],
 }) => {
   // const img = require(`../assets/img/${classTitle}.png`);
-  console.log("precent =>", precent);
+  console.log(singleClass.id, classes);
   return (
     <div
-      className="card2 pad col"
+      className="card2 pad col "
       onClick={() => {
-        choseClass(id);
+        choseClass(singleClass.id, classes);
       }}
     >
       <div className="class-title row pad" style={{ width: "100px" }}>

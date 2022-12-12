@@ -5,26 +5,25 @@ import ButtonCol from "../Layouts/Button/ButtonCol";
 const Questions = ({
   text,
   answers,
-  qestion,
   setCount,
   count,
   setQuestion,
   previousBtnDisplay,
+  classQuestions,
 }) => {
-  const img = require(`../assets/img/motion.png`);
-
   const [chosenAnswer, setChosenAnswer] = useState("");
   const [submit, setSubmit] = useState("");
   const [styles, setStyles] = useState("");
   const [answerSubmited, setAnswerSubmited] = useState(false);
   const [disabled, setDisabled] = useState(false);
 
+  const qestion = classQuestions[count];
+
   const onSubmit = () => {
-    if (qestion.answers[chosenAnswer] == qestion.rightAnswer) {
+    if (chosenAnswer == qestion.answer) {
       setSubmit("right");
       setStyles("var(--clr-success)");
     } else {
-      console.log("wrong");
       setSubmit("wrong");
       setStyles("var(--clr---clr-danger)");
     }
@@ -41,7 +40,7 @@ const Questions = ({
 
   const counter = () => {
     setCount(count + 1);
-    console.log(count);
+
     setSubmit(false);
     setAnswerSubmited(false);
     setDisabled(false);
@@ -52,7 +51,6 @@ const Questions = ({
   const goBack = () => {
     if (count > 0) {
       setCount(count - 1);
-      console.log(count);
       setSubmit(false);
       setAnswerSubmited(false);
       setSubmit("");
@@ -60,24 +58,26 @@ const Questions = ({
     }
   };
 
+  console.log(qestion);
+
   return (
-    <div className="class-page-content">
-      <img src={img}></img>
+    <div className="class-page-content ">
+      <img src={require(`../assets/img/motion.png`)}></img>
       <div className="row between">
         <div className="col left">
           <div className="qestion-text">
             <h4>
               <b>Qestion 1</b>
             </h4>
-            <p>{qestion.qestion}</p>
+            <p>{qestion?.question}</p>
           </div>
         </div>
 
         <div className="col right">
           <ButtonCol
-            text={qestion.answers[0]}
+            text={qestion?.optionalAnswers[0]}
             className={"btn gray"}
-            qestionIndex={"0"}
+            qestionIndex={1}
             setChosenAnswer={setChosenAnswer}
             chosenAnswer={chosenAnswer}
             submit={submit}
@@ -85,9 +85,9 @@ const Questions = ({
             disabled={disabled}
           />
           <ButtonCol
-            text={qestion.answers[1]}
+            text={qestion?.optionalAnswers[1]}
             className={"btn gray"}
-            qestionIndex={"1"}
+            qestionIndex={2}
             setChosenAnswer={setChosenAnswer}
             chosenAnswer={chosenAnswer}
             submit={submit}
@@ -95,9 +95,9 @@ const Questions = ({
             disabled={disabled}
           />
           <ButtonCol
-            text={qestion.answers[2]}
+            text={qestion?.optionalAnswers[2]}
             className={"btn gray"}
-            qestionIndex={"2"}
+            qestionIndex={3}
             setChosenAnswer={setChosenAnswer}
             chosenAnswer={chosenAnswer}
             submit={submit}
@@ -105,9 +105,9 @@ const Questions = ({
             disabled={disabled}
           />
           <ButtonCol
-            text={qestion.answers[3]}
+            text={qestion?.optionalAnswers[3]}
             className={"btn gray"}
-            qestionIndex={"3"}
+            qestionIndex={4}
             setChosenAnswer={setChosenAnswer}
             chosenAnswer={chosenAnswer}
             submit={submit}
