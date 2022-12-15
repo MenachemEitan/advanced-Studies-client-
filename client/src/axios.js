@@ -16,3 +16,27 @@ export const PostAuth =async (url,data)=>{
        
        return returnValue
 }
+export const PostQuestions =async (url,params,data)=>{
+    
+   await axios.post(`${baseUrl}/class/${url}:${params}`,data).then(data =>{
+        console.log(data);
+        
+       }).catch(err =>{  
+        
+        console.log(err);
+       })
+       
+}
+export const PostField =async (url,data)=>{
+    
+    const returnValue = []
+    
+    await axios.post(`${baseUrl}/class/${url}`,data).then(data =>{
+         console.log(data);
+         
+        }).catch(err =>{  
+            
+            returnValue.push(...err.response.data.message)
+        })
+        return returnValue
+ }

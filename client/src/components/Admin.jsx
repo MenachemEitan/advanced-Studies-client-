@@ -15,8 +15,7 @@ export const Admin = () => {
     // console.log(select);
     // console.log(fieldName,'fieldName');
     // console.log(className,'className');
-
-    let data = [fieldName,className]
+    // console.log(questions,);
     
     
     return (
@@ -24,7 +23,7 @@ export const Admin = () => {
             <div>
                 <h2>Add Page</h2>
                 <select onChange={getSelect}>
-                <option value="default" hidden>Choose Type</option>
+                    <option value="default" hidden>Choose Type</option>
                     <option value="field" >Field</option>
                     <option value="class" >Class</option>
                     <option value="questions" >Questions</option>
@@ -32,7 +31,7 @@ export const Admin = () => {
             </div>
             {select === 'field' && <div>
                 <h4>Add new field</h4>
-                <AddField setFieldName={setFieldName} />
+                <AddField setFieldName={setFieldName} fieldName={fieldName} />
             </div>}
             {select === 'class' && <div>
                 <h4>Add new class</h4>
@@ -41,7 +40,7 @@ export const Admin = () => {
             </div>}
             {select === 'questions' && <div>
             <AddClass setClassName={setClassName}/>
-            <AddQuestions setQuestions={setQuestions}/>
+            <AddQuestions setQuestions={setQuestions} questions={questions} className={className}/>
             </div>}
             
         </div>
