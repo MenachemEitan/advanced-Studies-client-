@@ -1,7 +1,10 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
+// 
+
 import logo from "../assets/img/atom.png";
-import { forLogout, getToken } from "../auth/localStorage";
+import { forLogout, getToken, getUserData } from "../auth/localStorage";
 
 import PopUp from "../Layouts/PopUp/PopUp";
 import { LoginModal } from "../modals/LoginModal";
@@ -13,14 +16,23 @@ const Header = () => {
 
 const token = getToken()
   const [isLogin,setLogin]= useState(false)
+  const [isAdmin,setAdmin]= useState(false)
+
+  const permission = () =>{
+    let permissions = getUserData()
+     permissions = permissions.permissions
+     setAdmin(true) 
+   } 
+
 
   useEffect( ()=>{
+    permission()
     if(token){
       setLogin(true)
     }
 },[isLogin])
 
-  
+
   const handleLogOut = ()=>{
     forLogout()
     setLogin(false)
@@ -41,6 +53,7 @@ const token = getToken()
           {!isLogin && <LoginModal setLogin={setLogin}> Login </LoginModal>}
           {!isLogin && <SignUpModal setLogin={setLogin}>Sign Up</SignUpModal>}
           {isLogin && <button onClick={handleLogOut}>Log out</button>}
+       
         </div>
 
         <PopUp
@@ -48,10 +61,11 @@ const token = getToken()
           icon={"bars"}
           className={"modal"}
           style={{ color: "red" }}
+          
         >
           <div className="col left pad">
-            <div className="pad">Profile</div>
-            <div className="pad">Logout</div>
+          <NavLink to={'/profile'} className="pad">Profile</NavLink>
+            {isAdmin && <NavLink to={'/admin'} className="pad">Admin</NavLink> }
           </div>
         </PopUp>
 

@@ -72,7 +72,7 @@ export const Login = (props) => {
                     <button onClick={props.handleLoginModal}>close</button>
                 </div>
                 <div className="errorUser">
-                    {/* {<h3>{renderError()}</h3>} */}
+                    
                     
                     {renderError()}
                 </div>

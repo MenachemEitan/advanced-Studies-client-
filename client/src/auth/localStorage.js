@@ -25,6 +25,6 @@ export const getUserData = () => {
     return retrievedObject
 }
 
-export const isLoggedIn = ()=>{
-    return getToken() ? true:false
-}
+// export const isLoggedIn = ()=>{
+//     return getToken() ? true:false
+// }
