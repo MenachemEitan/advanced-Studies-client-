@@ -7,7 +7,7 @@ import Button from "../Layouts/Button/Button";
 
 export const Login = (props) => {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState();
+  const [password, setPassword] = useState("");
 
   const [error, setError] = useState([]);
 
@@ -20,12 +20,13 @@ export const Login = (props) => {
 
   const userData = {
     email: email,
-    password: parseInt(password),
+    password: password,
   };
 
   const handelSubmit = async () => {
+    console.log("userData", userData);
     const post = await PostAuth("users/login", userData);
-
+    console.log("post", post);
     if (post.length != 0) {
       setError(post);
     } else {

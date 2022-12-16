@@ -10,6 +10,7 @@ import MyClasses from "../components/MyClasses";
 import axios from "axios";
 import { UserContext } from "../context/UserContext";
 import { baseUrl } from "../axiosController";
+import Animation from "../components/Animation";
 
 const Home = () => {
   const { choseClass, currntClass, toggledClass, setToggledClass } = useClass();
@@ -18,9 +19,11 @@ const Home = () => {
   const context = useContext(UserContext);
   const myClassesIds = context?.user?.myClass;
 
+  // console.log(context?.user.userName);
+
   useEffect(() => {
     getMyClasses();
-  }, [myClasses]);
+  }, []);
 
   const getMyClasses = async () => {
     if (!myClasses.length) {
@@ -35,6 +38,23 @@ const Home = () => {
     }
   };
 
+  const getRecomendedClasses = async () => {
+    const token = localStorage.getItem("Token");
+    console.log("token", token);
+    try {
+      const resp = await axios.get(`${baseUrl}/users/recommended`, {
+        headers: {
+          Authorization: token,
+        },
+      });
+      console.log("resp", resp);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  getRecomendedClasses();
+
   return (
     <div className="home-page page-top-pad ">
       {toggledClass ? (
@@ -46,8 +66,15 @@ const Home = () => {
         <>
           <div className="welcome-section row between ">
             <h2 className="col left fade-in">
-              <b>Hello ido</b>
-              <b> good progress so far!</b>
+              {!context?.user && <b>Wellcom to Advanced Studies!</b>}
+
+              {context?.user && (
+                <>
+                  <b>{`Hello ${context?.user?.userName} `}</b>
+                  <b>{`good progress so far!`}</b>
+                </>
+              )}
+
               <h6>classes completed: 5</h6>
             </h2>
             <div className=" row right">
@@ -64,6 +91,8 @@ const Home = () => {
             classesList={classesList}
             choseClass={choseClass}
           />
+          {/* {<Animation></Animation>} */}
+          {/* <div className="ani" id="ani"></div> */}
         </>
       )}
     </div>

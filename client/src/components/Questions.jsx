@@ -1,6 +1,9 @@
+import axios from "axios";
 import React, { useState } from "react";
+import { baseUrl } from "../axiosController";
 import Button from "../Layouts/Button/Button";
 import ButtonCol from "../Layouts/Button/ButtonCol";
+import Animation from "./Animation";
 
 const Questions = ({
   text,
@@ -10,6 +13,7 @@ const Questions = ({
   setQuestion,
   previousBtnDisplay,
   classQuestions,
+  currntClass,
 }) => {
   const [chosenAnswer, setChosenAnswer] = useState("");
   const [submit, setSubmit] = useState("");
@@ -17,10 +21,32 @@ const Questions = ({
   const [answerSubmited, setAnswerSubmited] = useState(false);
   const [disabled, setDisabled] = useState(false);
 
+  const token = localStorage.getItem("Token");
+  console.log("token", token);
   const qestion = classQuestions[count];
 
-  const onSubmit = () => {
+  const onSubmit = async () => {
     if (chosenAnswer == qestion.answer) {
+      try {
+        const token = localStorage.getItem("Token");
+        if (token) {
+          const resp = await axios.post(
+            `${baseUrl}/class/login/submitAnswer/${qestion._id}`,
+            {
+              classId: currntClass._id,
+            },
+            {
+              headers: {
+                Authorization: token,
+              },
+            }
+          );
+          console.log("resp", resp);
+        }
+      } catch (err) {
+        console.log(err);
+      }
+
       setSubmit("right");
       setStyles("var(--clr-success)");
     } else {

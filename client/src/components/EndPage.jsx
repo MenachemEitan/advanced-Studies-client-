@@ -5,7 +5,7 @@ const EndPage = () => {
   const navigate = useNavigate();
 
   const handleHome = () => {
-    navigate("/home");
+    // navigate("/home");
   };
 
   return (

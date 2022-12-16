@@ -14,12 +14,12 @@ const ClassCard = ({
   singleClass = [""],
 }) => {
   // const img = require(`../assets/img/${classTitle}.png`);
-  console.log(singleClass.id, classes);
+  // console.log(singleClass.id, classes);
   return (
     <div
       className="card2 pad col "
       onClick={() => {
-        choseClass(singleClass.id, classes);
+        choseClass(singleClass._id, classes);
       }}
     >
       <div className="class-title row pad" style={{ width: "100px" }}>

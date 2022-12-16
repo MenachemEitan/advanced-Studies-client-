@@ -13,6 +13,7 @@ const OpenClasses = ({ classesList, choseClass }) => {
             classTitle={singleClass.classTitle}
             photoUrl={singleClass.photoUrl}
             isOpen={true}
+            key={singleClass.id}
             index={singleClass.index}
             precent={singleClass.precent}
             num={singleClass.num}

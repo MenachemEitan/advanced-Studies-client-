@@ -14,6 +14,7 @@ const RecommendedClasses = ({ choseClass, classesList }) => {
             classTitle={singleClass.classTitle}
             photoUrl={singleClass.photoUrl}
             isOpen={false}
+            key={singleClass.id}
             index={singleClass.index}
             precent={singleClass.precent}
             num={singleClass.num}

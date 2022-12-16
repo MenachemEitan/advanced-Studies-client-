@@ -1,22 +1,18 @@
 import axios from "axios";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { baseUrl } from "../axiosController";
-import Classes from "../components/Classes";
-import MyClasses from "../components/MyClasses";
 import PopularClasses from "../components/PopularClasses";
-import { UserContext } from "../context/UserContext";
+import Search from "../components/Search";
 import useClass from "../Hooks/useClass";
 import SearchBar from "../Layouts/SearchBar/SearchBar";
-import { classesList } from "../mookData";
 import ClassPage from "./ClassPage";
 
 const ClassesPage = () => {
   const { choseClass, currntClass, toggledClass, setToggledClass } = useClass();
-  const context = useContext(UserContext);
-
   const [popClasses, setPopClasses] = useState([]);
-
-  console.log("popClasses", popClasses);
+  const [searchInput, setSearchInput] = useState("");
+  const [searchClasses, setSearchClasses] = useState([]);
+  const [loader, setLoader] = useState(false);
 
   useEffect(() => {
     getPopularClasses();
@@ -29,8 +25,28 @@ const ClassesPage = () => {
     }
   };
 
+  const onSearch = async () => {
+    setLoader(true);
+    try {
+      const response = await axios.get(
+        `${baseUrl}/class/search/get/?text=${searchInput}`
+      );
+      setSearchClasses(response);
+      console.log(searchClasses);
+    } catch (err) {
+      console.log(err);
+    }
+    setTimeout(
+      function () {
+        setLoader(false);
+      },
+      [2000]
+    );
+  };
+
   return (
     <div className="classes-page page-top-pad fade-in">
+      {loader && <span class="loader"></span>}
       <div className="classes-page-section col pad">
         {toggledClass ? (
           <>
@@ -47,8 +63,15 @@ const ClassesPage = () => {
                 <div>Classes</div>
               </b>
             </h3>
-            <SearchBar />
+            <SearchBar
+              setSearchInput={setSearchInput}
+              searchInput={searchInput}
+            />
+            <button className="btn black" onClick={onSearch}>
+              search
+            </button>
 
+            <Search searchClasses={searchClasses}></Search>
             <PopularClasses popClasses={popClasses} choseClass={choseClass} />
           </>
         )}

@@ -15,6 +15,7 @@ const PopularClasses = ({ popClasses, choseClass }) => {
             singleClass={singleClass}
             choseClass={choseClass}
             id={singleClass.id}
+            key={singleClass.id}
             classTitle={singleClass.className}
             photoUrl={singleClass.photoUrl}
             isOpen={false}

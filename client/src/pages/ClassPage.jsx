@@ -15,6 +15,7 @@ const ClassPage = ({ setToggledClass, currntClass }) => {
   const [qestion, setQuestion] = useState();
   const [previousBtnDisplay, setPreviousBtnDisplay] = useState("none");
   const [classEnded, setClassEnded] = useState(false);
+
   useEffect(() => {
     if (count > 0) {
       setPreviousBtnDisplay("block");
@@ -31,16 +32,22 @@ const ClassPage = ({ setToggledClass, currntClass }) => {
   }, []);
 
   const getQuestions = async () => {
-    const classQuestionsTemp = [];
+    try {
+      const classQuestionsTemp = [];
 
-    const resp = await axios.get(`${baseUrl}/class/${currntClass.id}`);
-    const questionsIds = await resp.data.data.question;
+      const resp = await axios.get(`${baseUrl}/class/${currntClass._id}`);
 
-    for (let questionId of questionsIds) {
-      const temp = await axios.get(`${baseUrl}/class/question/${questionId}`);
-      classQuestionsTemp.push(temp.data.data);
+      const questionsIds = await resp.data.data.question;
+
+      for (let questionId of questionsIds) {
+        const temp = await axios.get(`${baseUrl}/class/question/${questionId}`);
+
+        classQuestionsTemp.push(temp.data.data);
+      }
+      getClassQuestions(classQuestionsTemp);
+    } catch (err) {
+      console.log(err);
     }
-    getClassQuestions(classQuestionsTemp);
   };
 
   const handleQuestions = () => {
@@ -49,6 +56,12 @@ const ClassPage = ({ setToggledClass, currntClass }) => {
   return (
     // <div>{currntClass.className}</div>
     <div className="class-page fade-in">
+      <img
+        src={`${baseUrl}/class/getpic/pic/${currntClass.icon}`}
+        style={{ width: "100px" }}
+        className="pad"
+      ></img>
+
       {classEnded ? (
         <EndgPage />
       ) : (
@@ -73,6 +86,11 @@ const ClassPage = ({ setToggledClass, currntClass }) => {
                     <b>{currntClass.className}</b>
                   </h2>
                 </div>
+                <img
+                  src={`${baseUrl}/class/getpic/pic/${currntClass.img}`}
+                  style={{ width: "500px" }}
+                  className="pad"
+                ></img>
                 {/* <Img src={img} className={"intro-img"}></Img> */}
                 <div className="pad">
                   <p>
@@ -94,6 +112,7 @@ const ClassPage = ({ setToggledClass, currntClass }) => {
             </>
           ) : (
             <Questions
+              currntClass={currntClass}
               setCount={setCount}
               count={count}
               qestion={qestion}

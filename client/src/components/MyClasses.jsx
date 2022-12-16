@@ -2,11 +2,12 @@ import ClassCard from "./ClassCard";
 
 const MyClasses = ({ myClasses, choseClass, myClassesIds }) => {
   let i = 1;
+  const title = myClasses.length ? "My Classes" : "";
   return (
     <div className="MyClasses">
       <div className="classes row left">
         <div className="col left">
-          <div className="cards-title row ">My Classes</div>
+          <div className="cards-title row ">{title}</div>
           <div className="row my-classes">
             {myClasses.map((singleClass) => (
               <ClassCard
@@ -14,6 +15,7 @@ const MyClasses = ({ myClasses, choseClass, myClassesIds }) => {
                 singleClass={singleClass}
                 choseClass={choseClass}
                 id={singleClass.id}
+                key={singleClass.id}
                 classTitle={singleClass.className}
                 photoUrl={singleClass.photoUrl}
                 isOpen={true}
