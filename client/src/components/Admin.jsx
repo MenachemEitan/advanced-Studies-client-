@@ -31,12 +31,12 @@ export const Admin = () => {
             </div>
             {select === 'field' && <div>
                 <h4>Add new field</h4>
-                <AddField setFieldName={setFieldName} fieldName={fieldName} />
+                <AddField setFieldName={setFieldName} fieldName={fieldName} select={select} />
             </div>}
             {select === 'class' && <div>
                 <h4>Add new class</h4>
-                <AddField setFieldName={setFieldName} />
-               <AddClass setClassName={setClassName}/>
+                <AddField setFieldName={setFieldName} fieldName={fieldName} />
+               <AddClass setClassName={setClassName} className={className} fieldName={fieldName} select={select}/>
             </div>}
             {select === 'questions' && <div>
             <AddClass setClassName={setClassName}/>

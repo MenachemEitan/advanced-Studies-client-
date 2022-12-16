@@ -1,7 +1,5 @@
 import { useState } from 'react';
-import axios from "axios";
 import '../componentStyle/login.css'
-import { storeToken, storeUserData } from '../auth/localStorage';
 import { PostAuth,} from '../axios';
 
 export const Login = (props) => {

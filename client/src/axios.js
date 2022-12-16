@@ -40,3 +40,17 @@ export const PostField =async (url,data)=>{
         })
         return returnValue
  }
+
+ export const PostClass =async (url,params,data)=>{
+    
+    const returnValue = []
+    await axios.post(`${baseUrl}/class/${url}/${params}`,data).then(data =>{
+         console.log(data);
+         
+        }).catch(err =>{ 
+            console.log(err);
+            returnValue.push(err.response.data.message)
+            console.log(returnValue); 
+        })
+        return returnValue
+ }
