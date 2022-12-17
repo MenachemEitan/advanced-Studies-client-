@@ -16,17 +16,7 @@ export const PostAuth =async (url,data)=>{
        
        return returnValue
 }
-export const PostQuestions =async (url,params,data)=>{
-    
-   await axios.post(`${baseUrl}/class/${url}:${params}`,data).then(data =>{
-        console.log(data);
-        
-       }).catch(err =>{  
-        
-        console.log(err);
-       })
-       
-}
+
 export const PostField =async (url,data)=>{
     
     const returnValue = []
@@ -48,9 +38,21 @@ export const PostField =async (url,data)=>{
          console.log(data);
          
         }).catch(err =>{ 
-            console.log(err);
+           
             returnValue.push(err.response.data.message)
             console.log(returnValue); 
+        })
+        return returnValue
+ }
+ export const PostQuestions =async (url,params,data)=>{
+    const returnValue = []
+    await axios.post(`${baseUrl}/class/${url}/${params}`,data).then(data =>{
+         console.log(data);
+         
+        }).catch(err =>{  
+            console.log(err);
+            returnValue.push(err.response.data.message)
+            console.log(returnValue);
         })
         return returnValue
  }

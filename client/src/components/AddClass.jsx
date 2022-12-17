@@ -29,7 +29,7 @@ export const AddClass = (props) => {
         const postClass = await PostClass('addclass',props.fieldName,data)
         if (postClass.length != 0) {
             setMessage(postClass)
-            
+            console.log(postClass);
         }
         else{
             setMessage('Success')

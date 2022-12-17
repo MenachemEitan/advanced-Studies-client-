@@ -40,7 +40,7 @@ export const Admin = () => {
             </div>}
             {select === 'questions' && <div>
             <AddClass setClassName={setClassName}/>
-            <AddQuestions setQuestions={setQuestions} questions={questions} className={className}/>
+            <AddQuestions setQuestions={setQuestions} question={questions} className={className}/>
             </div>}
             
         </div>
