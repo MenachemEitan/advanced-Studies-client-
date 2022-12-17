@@ -13,6 +13,7 @@ const ClassesPage = () => {
   const [searchInput, setSearchInput] = useState("");
   const [searchClasses, setSearchClasses] = useState([]);
   const [loader, setLoader] = useState(false);
+  const [toggledResult, setToggledResult] = useState(false);
 
   useEffect(() => {
     getPopularClasses();
@@ -40,7 +41,7 @@ const ClassesPage = () => {
       function () {
         setLoader(false);
       },
-      [2000]
+      [500]
     );
   };
 
@@ -66,13 +67,22 @@ const ClassesPage = () => {
             <SearchBar
               setSearchInput={setSearchInput}
               searchInput={searchInput}
+              onSearch={onSearch}
+              setToggledResult={setToggledResult}
             />
-            <button className="btn black" onClick={onSearch}>
-              search
-            </button>
-
-            <Search searchClasses={searchClasses}></Search>
-            <PopularClasses popClasses={popClasses} choseClass={choseClass} />
+            {toggledResult ? (
+              <Search
+                searchClasses={searchClasses}
+                choseClass={choseClass}
+                currntClass={currntClass}
+              ></Search>
+            ) : (
+              <PopularClasses
+                popClasses={popClasses}
+                choseClass={choseClass}
+                currntClass={currntClass}
+              />
+            )}
           </>
         )}
       </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { baseUrl } from "../axiosController";
 import CircularProgressBar from "../Layouts/CircularProgressBar/CircularProgressBar";
 
 const ClassCard = ({
@@ -8,13 +9,9 @@ const ClassCard = ({
   num,
   precent,
   isOpen,
-  photoUrl,
   choseClass,
-  id,
   singleClass = [""],
 }) => {
-  // const img = require(`../assets/img/${classTitle}.png`);
-  // console.log(singleClass.id, classes);
   return (
     <div
       className="card2 pad col "
@@ -25,11 +22,20 @@ const ClassCard = ({
       <div className="class-title row pad" style={{ width: "100px" }}>
         {classTitle}
       </div>
-      {isOpen && (
-        <CircularProgressBar index={index} num={num} precent={precent} />
+      <div className="">
+        {" "}
+        {isOpen && (
+          <CircularProgressBar index={index} num={num} precent={precent} />
+        )}
+      </div>
+      {singleClass.icon ? (
+        <img
+          src={`${baseUrl}/class/getpic/pic/${singleClass?.icon}`}
+          className="card-img pad"
+        ></img>
+      ) : (
+        ""
       )}
-
-      {/* <img src={img} alt="" className="card-img pad" /> */}
     </div>
   );
 };

@@ -6,11 +6,15 @@ const Button = ({
   icon,
   onClick,
   text,
-  style,
+  border = [""],
   className = [""],
 }) => {
   return (
-    <div className={`custom-btn ${className} row`} onClick={onClick}>
+    <div
+      className={`custom-btn ${className} row marg`}
+      style={{ borderBottom: border }}
+      onClick={onClick}
+    >
       {icon && <Icon Icon={icon} />}
       <div className="text">{text}</div>
     </div>

@@ -40,7 +40,7 @@
   }
   
   .search-icon {
-
+    cursor: pointer;
     position: absolute;
     left: 15px;
     top:0;

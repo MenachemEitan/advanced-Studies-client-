@@ -10,50 +10,33 @@ import MyClasses from "../components/MyClasses";
 import axios from "axios";
 import { UserContext } from "../context/UserContext";
 import { baseUrl } from "../axiosController";
-import Animation from "../components/Animation";
 
 const Home = () => {
   const { choseClass, currntClass, toggledClass, setToggledClass } = useClass();
-  const [img, setImg] = useState();
-  const [myClasses, setMyClasses] = useState([]);
+  const [recomendedClass, setRecomendedClass] = useState([]);
   const context = useContext(UserContext);
   const myClassesIds = context?.user?.myClass;
 
-  // console.log(context?.user.userName);
-
   useEffect(() => {
-    getMyClasses();
+    getRecomendedClasses();
   }, []);
-
-  const getMyClasses = async () => {
-    if (!myClasses.length) {
-      const tempClassList = [...myClasses];
-
-      for (let key in myClassesIds) {
-        const temp = await axios.get(`${baseUrl}/class/${key}`);
-        tempClassList.push(temp.data.data);
-      }
-
-      setMyClasses(tempClassList);
-    }
-  };
 
   const getRecomendedClasses = async () => {
     const token = localStorage.getItem("Token");
-    console.log("token", token);
+
     try {
       const resp = await axios.get(`${baseUrl}/users/recommended`, {
         headers: {
           Authorization: token,
         },
       });
-      console.log("resp", resp);
+
+      setRecomendedClass(resp.data.data);
+      console.log("recomendedClass", recomendedClass);
     } catch (err) {
       console.log(err);
     }
   };
-
-  getRecomendedClasses();
 
   return (
     <div className="home-page page-top-pad ">
@@ -81,18 +64,13 @@ const Home = () => {
               <img src={homePagePhoto} className="homePagePhoto"></img>
             </div>
           </div>
-          {/* <OpenClasses classesList={classesList} choseClass={choseClass} /> */}
-          <MyClasses
-            myClasses={myClasses}
-            choseClass={choseClass}
-            myClassesIds={myClassesIds}
-          />
+
+          <MyClasses choseClass={choseClass} myClassesIds={myClassesIds} />
+
           <RecommendedClasses
-            classesList={classesList}
+            recomendedClass={recomendedClass}
             choseClass={choseClass}
           />
-          {/* {<Animation></Animation>} */}
-          {/* <div className="ani" id="ani"></div> */}
         </>
       )}
     </div>

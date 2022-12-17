@@ -388,7 +388,7 @@ const Animation = () => {
 
   return (
     <div>
-      <button onClick={canv}>start animation</button>
+      <button onClick={gause}>start animation</button>
       <button onClick={remove}>remove</button>
       Animation
     </div>

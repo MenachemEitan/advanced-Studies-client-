@@ -4,13 +4,14 @@ import { baseUrl } from "../axiosController";
 
 import ClassCard from "./ClassCard";
 
-const PopularClasses = ({ popClasses, choseClass }) => {
+const PopularClasses = ({ popClasses, choseClass, currntClass }) => {
   return (
     <div className="PopularClasses ">
       <div className="cards-title">Popular Classes</div>
       <div className="classes row">
         {popClasses.map((singleClass) => (
           <ClassCard
+            currntClass={currntClass}
             classes={popClasses}
             singleClass={singleClass}
             choseClass={choseClass}

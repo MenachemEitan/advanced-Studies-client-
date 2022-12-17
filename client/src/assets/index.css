@@ -564,6 +564,7 @@ grid-row-gap: 0px;
   animation: animloader 2s linear infinite;
 }
 
+
 @keyframes animloader {
   0% {
     left: 0;

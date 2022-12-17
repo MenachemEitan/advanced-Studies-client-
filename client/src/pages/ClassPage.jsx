@@ -15,6 +15,7 @@ const ClassPage = ({ setToggledClass, currntClass }) => {
   const [qestion, setQuestion] = useState();
   const [previousBtnDisplay, setPreviousBtnDisplay] = useState("none");
   const [classEnded, setClassEnded] = useState(false);
+  const img = currntClass.img ? currntClass.img : "";
 
   useEffect(() => {
     if (count > 0) {
@@ -56,17 +57,10 @@ const ClassPage = ({ setToggledClass, currntClass }) => {
   return (
     // <div>{currntClass.className}</div>
     <div className="class-page fade-in">
-      <img
-        src={`${baseUrl}/class/getpic/pic/${currntClass.icon}`}
-        style={{ width: "100px" }}
-        className="pad"
-      ></img>
-
       {classEnded ? (
-        <EndgPage />
+        <EndgPage setToggledClass={setToggledClass} />
       ) : (
         <>
-          {" "}
           <Button
             icon={"chevron-left"}
             onClick={(toggledClass) => {
@@ -87,7 +81,7 @@ const ClassPage = ({ setToggledClass, currntClass }) => {
                   </h2>
                 </div>
                 <img
-                  src={`${baseUrl}/class/getpic/pic/${currntClass.img}`}
+                  src={`${baseUrl}/class/getpic/pic/${img}`}
                   style={{ width: "500px" }}
                   className="pad"
                 ></img>

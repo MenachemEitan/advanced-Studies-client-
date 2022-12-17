@@ -1,12 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const EndPage = () => {
+const EndPage = ({ setToggledClass }) => {
   const navigate = useNavigate();
 
-  const handleHome = () => {
-    // navigate("/home");
-  };
+  const handleHome = () => {};
 
   return (
     <div className="end-page fade-in">
@@ -22,7 +20,12 @@ const EndPage = () => {
           ></img>
         </div>
         <div className="row right pad">
-          <button className="btn black start-class-btn" onClick={handleHome}>
+          <button
+            className="btn black start-class-btn"
+            onClick={(toggledClass) => {
+              setToggledClass(!toggledClass);
+            }}
+          >
             continue
           </button>
         </div>
