@@ -19,9 +19,13 @@ const token = getToken()
   const [isAdmin,setAdmin]= useState(false)
 
   const permission = () =>{
-    let permissions = getUserData()
-     permissions = permissions.permissions
-     setAdmin(true) 
+    if(token){
+      let permissions = getUserData()
+     if (permissions.permissions === 'admin') {
+      setAdmin(true) 
+     }
+     
+    }
    } 
 
 
@@ -36,6 +40,7 @@ const token = getToken()
   const handleLogOut = ()=>{
     forLogout()
     setLogin(false)
+    setAdmin(false)
   }
   return (
     <div className="header">
