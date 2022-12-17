@@ -14,7 +14,7 @@ const ClassCard = ({
 }) => {
   return (
     <div
-      className="card2 pad col "
+      className="card2  col "
       onClick={() => {
         choseClass(singleClass._id, classes);
       }}
@@ -22,20 +22,22 @@ const ClassCard = ({
       <div className="class-title row pad" style={{ width: "100px" }}>
         {classTitle}
       </div>
-      <div className="">
+      <div className="row">
         {" "}
         {isOpen && (
           <CircularProgressBar index={index} num={num} precent={precent} />
         )}
       </div>
-      {singleClass.icon ? (
-        <img
-          src={`${baseUrl}/class/getpic/pic/${singleClass?.icon}`}
-          className="card-img pad"
-        ></img>
-      ) : (
-        ""
-      )}
+      <div className="row">
+        {singleClass.icon ? (
+          <img
+            src={`${baseUrl}/class/getpic/pic/${singleClass?.icon}`}
+            className="card-img pad"
+          ></img>
+        ) : (
+          ""
+        )}
+      </div>
     </div>
   );
 };

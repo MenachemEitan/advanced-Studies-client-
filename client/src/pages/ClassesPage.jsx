@@ -9,22 +9,11 @@ import ClassPage from "./ClassPage";
 
 const ClassesPage = () => {
   const { choseClass, currntClass, toggledClass, setToggledClass } = useClass();
-  const [popClasses, setPopClasses] = useState([]);
+
   const [searchInput, setSearchInput] = useState("");
   const [searchClasses, setSearchClasses] = useState([]);
   const [loader, setLoader] = useState(false);
   const [toggledResult, setToggledResult] = useState(false);
-
-  useEffect(() => {
-    getPopularClasses();
-  }, []);
-
-  const getPopularClasses = async () => {
-    if (!popClasses.length) {
-      const temp = await axios.get(`${baseUrl}/class/popularClass/get`);
-      setPopClasses(temp.data.data);
-    }
-  };
 
   const onSearch = async () => {
     setLoader(true);
@@ -78,7 +67,7 @@ const ClassesPage = () => {
               ></Search>
             ) : (
               <PopularClasses
-                popClasses={popClasses}
+                // popClasses={popClasses}
                 choseClass={choseClass}
                 currntClass={currntClass}
               />

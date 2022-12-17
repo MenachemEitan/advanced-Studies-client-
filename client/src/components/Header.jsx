@@ -1,28 +1,38 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import logo from "../assets/img/atom.png";
-import { forLogout, getToken } from "../auth/localStorage";
-import axios from "axios";
+import { forLogout, getToken, getUserData } from "../auth/localStorage";
 import PopUp from "../Layouts/PopUp/PopUp";
 import { LoginModal } from "../modals/LoginModal";
 import { SignUpModal } from "../modals/SignUpModal";
+
 import Navbar from "./Navbar";
 
 const Header = () => {
   const token = getToken();
   const [isLogin, setLogin] = useState(false);
+  const [isAdmin, setAdmin] = useState(true);
+
+  // const permission = () => {
+  //   if (token) {
+  //     let permissions = getUserData();
+  //     if (permissions.permissions === "admin") {
+  //       setAdmin(true);
+  //     }
+  //   }
+  // };
 
   useEffect(() => {
+    // permission();
     if (token) {
       setLogin(true);
-    } else {
-      setLogin(false);
     }
   }, [isLogin]);
 
   const handleLogOut = () => {
     forLogout();
-    // setLogin(false);
+    setLogin(false);
   };
   return (
     <header className="header">
@@ -46,14 +56,20 @@ const Header = () => {
           style={{ color: "red" }}
         >
           <div className="col left pad">
-            <div className="pad">Profile</div>
             {!isLogin && <LoginModal setLogin={setLogin}> Login </LoginModal>}
             {!isLogin && <SignUpModal setLogin={setLogin}>Sign Up</SignUpModal>}
             {isLogin && (
-              <div className="pad" onClick={handleLogOut}>
+              <div onClick={handleLogOut} className="pad pointer">
                 Log out
               </div>
             )}
+            <div className="col left pad">
+              {true && (
+                <NavLink to={"/admin"} className="nav-link">
+                  Admin
+                </NavLink>
+              )}
+            </div>
           </div>
         </PopUp>
       </div>

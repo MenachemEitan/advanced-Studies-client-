@@ -34,7 +34,7 @@ const MyClasses = ({ choseClass, myClassesIds, currntClass }) => {
       <div className="classes row left">
         <div className="col left">
           <div className="cards-title row ">{title}</div>
-          <div className="row my-classes">
+          <div className="row my-classes left">
             {myClasses.map((singleClass) => (
               <ClassCard
                 singleClass={singleClass}

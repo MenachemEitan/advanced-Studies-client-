@@ -46,7 +46,7 @@
     --fs-xl:  clamp(1.5rem, 2vw, 4rem);
     --fs-xxl:   clamp(2rem, 2.5vw, 4.5rem);
 
-    --img-xxs:   clamp(20px, 15vw, 100px);
+    --img-xxs:   clamp(60px, 20vw, 170px);
     --img-xs:   clamp(180px, 25vw, 250px);
     --img-sm:  clamp(175px, 20vw, 300px);
     --img-md:  clamp(200px, 25vw, 350px);
@@ -140,6 +140,35 @@
   .marg{
     margin:10px;
   }
+
+   input{
+    border: 1.3px solid #ccc;
+    height: 35px;
+    width: 300px;
+    padding:12px;
+    margin: 5px;
+    border-radius: 4px;
+    margin-left: auto;
+    margin-right: auto;
+  } 
+
+  input[type="file"] {
+    /* display: none; */
+}
+
+
+  select{
+    border: 1.3px solid #ccc;
+    height: 35px;
+    width: 300px;
+    /* padding:12px; */
+    margin: 5px;
+    border-radius: 4px;
+    margin-left: auto;
+    margin-right: auto;
+  } 
+
+  
   
   
   .App{  
@@ -169,7 +198,9 @@
   }
 
   .card-img{
-    width: var(--img-xs);
+    width: var(--img-xxs);
+    position: absolute;
+    bottom:10px;
   }
 
   .intro-img{
@@ -189,6 +220,13 @@
 
   .home-page{
     padding-top: 110px;
+  }
+
+  .admin-page{
+    margin: auto;
+    width: clamp(600px ,70vw , 800px);
+    /* border: 3px solid green; */
+    padding-top: 160px;
   }
 
   .homePagePhoto{
@@ -234,6 +272,7 @@
    display: flex;
    flex-grow: row;
     border: 1px solid #cccccc;
+    flex-wrap: wrap;
    
   }
   
@@ -279,6 +318,14 @@
       width: clamp(600px ,70vw , 800px);
       /* border: 3px solid green; */
       padding: 10px;
+    }
+
+    .my-classes{
+      margin: auto;
+      width: clamp(600px ,80vw , 900px);
+      /* border: 3px solid green; */
+      padding: 10px;
+      flex-wrap: wrap;
     }
 
     .cards-title{
@@ -390,6 +437,16 @@ top: 3px;
   font-weight: 600;
 }
 
+.nav-link{
+  color: #353030;
+  text-decoration: none;
+  padding: 0;
+}
+
+.pointer{
+  cursor: pointer;
+}
+
 
 
 
@@ -400,12 +457,15 @@ top: 3px;
       display:none;
   }
 
+
+
   .card2{
     width: 90%;
     height: 50px;
     margin:5px;
     display:flex;
     flex-direction:row;
+   
     justify-content: space-between;
    }
 
