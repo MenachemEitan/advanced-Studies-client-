@@ -15,7 +15,9 @@ const ClassPage = ({ setToggledClass, currntClass }) => {
   const [qestion, setQuestion] = useState();
   const [previousBtnDisplay, setPreviousBtnDisplay] = useState("none");
   const [classEnded, setClassEnded] = useState(false);
+  const [loader, setLoader] = useState(true);
   const img = currntClass.img ? currntClass.img : "";
+  console.log("loader", loader);
 
   useEffect(() => {
     if (count > 0) {
@@ -54,9 +56,13 @@ const ClassPage = ({ setToggledClass, currntClass }) => {
   const handleQuestions = () => {
     setToggleQuestions(!toggleQuestions);
   };
+
+  // setTimeout(() => {
+  //   setLoader(false);
+  // }, [500]);
   return (
-    // <div>{currntClass.className}</div>
     <div className="class-page fade-in">
+      {/* {loader && <span class="loader"></span>} */}
       {classEnded ? (
         <EndgPage setToggledClass={setToggledClass} />
       ) : (

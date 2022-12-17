@@ -10,8 +10,8 @@
 }
 .loginContent{
     display: block;
-    height: clamp(200px, 22vh, 270px);
-    width: 30vw;
+    height:220px;
+    width: 400px;
     border-radius: 5px;
     margin-top: auto;
     margin-bottom: auto;

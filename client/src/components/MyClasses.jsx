@@ -28,41 +28,39 @@ const MyClasses = ({ choseClass, myClassesIds, currntClass }) => {
 
   let i = 1;
   const title = myClasses.length ? "My Classes" : "";
+  console.log("myClasses", myClasses);
   return (
     <div className="MyClasses">
       <div className="classes row left">
         <div className="col left">
           <div className="cards-title row ">{title}</div>
           <div className="row my-classes">
-            {myClasses.map(
-              (singleClass) =>
-                singleClass && (
-                  <ClassCard
-                    singleClass={singleClass}
-                    classes={myClasses}
-                    choseClass={choseClass}
-                    id={singleClass._id}
-                    key={singleClass._id}
-                    classTitle={singleClass.className}
-                    isOpen={true}
-                    index={i++}
-                    precent={
-                      !myClassesIds[singleClass._id].length
-                        ? 0
-                        : (singleClass?.question?.length /
-                            myClassesIds[singleClass._id]?.length) *
-                          180
-                    }
-                    num={
-                      !myClassesIds[singleClass._id].length
-                        ? 0
-                        : (singleClass?.question?.length /
-                            myClassesIds[singleClass._id]?.length) *
-                          100
-                    }
-                  />
-                )
-            )}
+            {myClasses.map((singleClass) => (
+              <ClassCard
+                singleClass={singleClass}
+                classes={myClasses}
+                choseClass={choseClass}
+                id={singleClass._id}
+                key={singleClass._id}
+                classTitle={singleClass.className}
+                isOpen={true}
+                index={i++}
+                precent={
+                  !myClassesIds[singleClass._id].length
+                    ? 0
+                    : (singleClass?.question?.length /
+                        myClassesIds[singleClass._id]?.length) *
+                      180
+                }
+                num={
+                  !myClassesIds[singleClass._id].length
+                    ? 0
+                    : (singleClass?.question?.length /
+                        myClassesIds[singleClass._id]?.length) *
+                      100
+                }
+              />
+            ))}
           </div>
         </div>
       </div>

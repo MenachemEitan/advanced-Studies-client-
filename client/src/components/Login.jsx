@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import "../componentStyle/login.css";
 import { storeToken, storeUserData } from "../auth/localStorage";
@@ -8,7 +8,6 @@ import Button from "../Layouts/Button/Button";
 export const Login = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const [error, setError] = useState([]);
 
   const inputUserName = (e) => {
@@ -24,14 +23,13 @@ export const Login = (props) => {
   };
 
   const handelSubmit = async () => {
-    console.log("userData", userData);
     const post = await PostAuth("users/login", userData);
-    console.log("post", post);
     if (post.length != 0) {
       setError(post);
     } else {
-      props.handleLoginModal();
-      props.setLogin(true);
+      window.location.reload();
+      // props.handleLoginModal();
+      // props.setLogin(true);
     }
   };
 

@@ -1,12 +1,24 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { baseUrl } from "../axiosController";
-
 import ClassCard from "./ClassCard";
 
-const PopularClasses = ({ popClasses, choseClass, currntClass }) => {
+const PopularClasses = ({ choseClass, currntClass }) => {
+  const [popClasses, setPopClasses] = useState([]);
+
+  useEffect(() => {
+    getPopularClasses();
+  }, []);
+
+  const getPopularClasses = async () => {
+    if (!popClasses.length) {
+      const temp = await axios.get(`${baseUrl}/class/popularClass/get`);
+      setPopClasses(temp.data.data);
+    }
+  };
+
   return (
-    <div className="PopularClasses ">
+    <div className="popular-classes ">
       <div className="cards-title">Popular Classes</div>
       <div className="classes row">
         {popClasses.map((singleClass) => (

@@ -24,8 +24,8 @@ const useClass = () => {
           }
         );
         const currntClass = resp?.data?.data[0];
-        console.log("Login-currntClass", currntClass);
         setCurrntClass(currntClass);
+
         setToggledClass(!toggledClass);
       } catch (err) {
         console.log(err);

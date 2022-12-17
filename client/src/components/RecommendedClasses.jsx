@@ -2,10 +2,11 @@ import React from "react";
 import ClassCard from "./ClassCard";
 
 const RecommendedClasses = ({ choseClass, recomendedClass, currntClass }) => {
+  const title = recomendedClass.length ? "recommended for you" : "";
   console.log("recomendedClass", recomendedClass);
   return (
     <div className="recommended-classes ">
-      <div className="cards-title">recommended for you</div>
+      <div className="cards-title">{title}</div>
 
       <div className="classes row left">
         {recomendedClass.map(

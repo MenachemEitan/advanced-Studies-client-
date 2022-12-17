@@ -15,12 +15,14 @@ const Header = () => {
   useEffect(() => {
     if (token) {
       setLogin(true);
+    } else {
+      setLogin(false);
     }
   }, [isLogin]);
 
   const handleLogOut = () => {
     forLogout();
-    setLogin(false);
+    // setLogin(false);
   };
   return (
     <header className="header">

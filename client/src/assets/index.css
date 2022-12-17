@@ -187,6 +187,10 @@
     width: clamp(600px ,70vw , 800px);
   }
 
+  .home-page{
+    padding-top: 110px;
+  }
+
   .homePagePhoto{
     width:var(--img-lg);
    
@@ -195,7 +199,7 @@
 
 
   .page-top-pad{
-    padding-top: clamp(75px, 10vh, 100px);
+    padding-top: 70px;
   }
 
   .class-card{
@@ -268,6 +272,13 @@
       padding: 10px;
 
 
+    }
+
+    .popular-classes{
+      margin: auto;
+      width: clamp(600px ,70vw , 800px);
+      /* border: 3px solid green; */
+      padding: 10px;
     }
 
     .cards-title{
