@@ -55,9 +55,17 @@ const Header = () => {
           className={"modal"}
           style={{ color: "red" }}
         >
-          <div className="col left pad">
-            {!isLogin && <LoginModal setLogin={setLogin}> Login </LoginModal>}
-            {!isLogin && <SignUpModal setLogin={setLogin}>Sign Up</SignUpModal>}
+          <div className="col left pad ">
+            {!isLogin && (
+              <LoginModal setLogin={setLogin}>
+                <div className="pointer">Login</div>{" "}
+              </LoginModal>
+            )}
+            {!isLogin && (
+              <SignUpModal setLogin={setLogin}>
+                <div className="pointer">Sign Up</div>
+              </SignUpModal>
+            )}
             {isLogin && (
               <div onClick={handleLogOut} className="pad pointer">
                 Log out

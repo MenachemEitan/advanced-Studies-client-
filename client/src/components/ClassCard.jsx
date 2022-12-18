@@ -14,16 +14,13 @@ const ClassCard = ({
 }) => {
   return (
     <div
-      className="card2  col "
+      className="card2  col pad"
       onClick={() => {
         choseClass(singleClass._id, classes);
       }}
     >
-      <div className="class-title row pad" style={{ width: "100px" }}>
-        {classTitle}
-      </div>
+      <div className="class-title row pad">{classTitle}</div>
       <div className="row">
-        {" "}
         {isOpen && (
           <CircularProgressBar index={index} num={num} precent={precent} />
         )}

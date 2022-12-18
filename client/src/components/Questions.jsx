@@ -84,11 +84,12 @@ const Questions = ({
     }
   };
 
-  console.log(qestion);
+  console.log("qestion", qestion);
 
   return (
     <div className="class-page-content ">
       <img src={require(`../assets/img/motion.png`)}></img>
+
       <div className="row between">
         <div className="col left">
           <div className="qestion-text">
@@ -181,6 +182,9 @@ const Questions = ({
           </>
         )}
         {/* <h3>{submit}</h3> */}
+        <div id="animation" className="animation">
+          <Animation></Animation>
+        </div>
       </div>
     </div>
   );

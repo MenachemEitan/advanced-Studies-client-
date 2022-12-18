@@ -23,7 +23,13 @@ export const AddClass = (props) => {
       className: props.className,
     };
 
-    const postClass = await PostClass("addclass", props.fieldName, data);
+    const postClass = await PostClass(
+      "addclass",
+      props.fieldName,
+      data,
+      image,
+      icon
+    );
     if (postClass.length != 0) {
       setMessage(postClass);
       console.log(postClass);
@@ -38,8 +44,12 @@ export const AddClass = (props) => {
         <input type="text" placeholder="class" onChange={handleClass} />
       </div>
       <div className="pad">
-        <AddIcon setIcon={setIcon}>upload icon</AddIcon>
-        <AddImage setImage={setImage}>upload Image</AddImage>
+        {props.select == "class" && (
+          <AddIcon setIcon={setIcon}>upload icon</AddIcon>
+        )}
+        {props.select == "class" && (
+          <AddImage setImage={setImage}>upload Image</AddImage>
+        )}
       </div>
       <div className="row right pad">
         {props.select == "class" && (

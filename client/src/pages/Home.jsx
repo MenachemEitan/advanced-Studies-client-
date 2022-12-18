@@ -12,6 +12,7 @@ import { UserContext } from "../context/UserContext";
 import { baseUrl } from "../axiosController";
 import PopularClasses from "../components/PopularClasses";
 import { isLoggedIn } from "../auth/localStorage";
+import Animation from "../components/Animation";
 
 const Home = () => {
   const { choseClass, currntClass, toggledClass, setToggledClass } = useClass();

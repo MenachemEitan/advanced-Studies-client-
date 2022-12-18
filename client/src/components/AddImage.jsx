@@ -1,6 +1,6 @@
 export const AddImage = (props) => {
   const handleImage = (e) => {
-    props.setImage(e.target.value);
+    props.setImage(e.target.files[0]);
   };
 
   return (

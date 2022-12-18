@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import Matter from "matter-js";
 
 import {
@@ -29,8 +29,9 @@ const Animation = () => {
       world = engine.world;
 
     // create renderer
+    const element = document.querySelector("#animation");
     var render = Render.create({
-      element: document.body,
+      element: element,
       engine: engine,
       options: {
         width: 800,
@@ -141,8 +142,11 @@ const Animation = () => {
     Engine.run(engine);
 
     // 2. setup render
+    const element = document.querySelector("#animation");
+    console.log("element", element);
+
     let render = Render.create({
-      element: document.body,
+      element: element,
       engine: engine,
 
       options: {
@@ -382,15 +386,20 @@ const Animation = () => {
   };
 
   const canvasRef = useRef();
-  console.log(canvasRef);
+  console.log("canvasRef", canvasRef);
+
+  // gause();
 
   // Use the ref to remove the <canvas> element from the DOM
 
   return (
-    <div>
-      <button onClick={gause}>start animation</button>
-      <button onClick={remove}>remove</button>
-      Animation
+    <div className="animation-btn">
+      <button onClick={canv} className="btn pad">
+        Use Animation
+      </button>
+      <button onClick={remove} className="btn pad">
+        Hide
+      </button>
     </div>
   );
 };

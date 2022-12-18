@@ -8,7 +8,7 @@ const RecommendedClasses = ({ choseClass, recomendedClass, currntClass }) => {
     <div className="recommended-classes ">
       <div className="cards-title">{title}</div>
 
-      <div className="classes row left">
+      <div className="classes row ">
         {recomendedClass.map(
           (singleClass) =>
             singleClass && (
