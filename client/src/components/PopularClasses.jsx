@@ -17,6 +17,8 @@ const PopularClasses = ({ choseClass, currntClass }) => {
     }
   };
 
+  console.log("popClasses", popClasses);
+
   return (
     <div className="popular-classes ">
       <div className="cards-title">Popular Classes</div>
@@ -28,7 +30,8 @@ const PopularClasses = ({ choseClass, currntClass }) => {
             singleClass={singleClass}
             choseClass={choseClass}
             id={singleClass.id}
-            key={singleClass.id}
+            key={singleClass._id}
+            text={singleClass.text}
             classTitle={singleClass.className}
             photoUrl={singleClass.photoUrl}
             isOpen={false}

@@ -12,6 +12,7 @@ export const Admin = () => {
   const [fieldName, setFieldName] = useState("");
   const [className, setClassName] = useState("");
   const [questions, setQuestions] = useState("");
+  const [classText, setClassText] = useState("");
   // console.log(select);
   // console.log(fieldName,'fieldName');
   // console.log(className,'className');

@@ -7,7 +7,7 @@ export const AddClass = (props) => {
   // console.log(props.fieldName);
   // console.log(props.className);
   const [message, setMessage] = useState([]);
-
+  const [classText, setClassText] = useState("");
   const [icon, setIcon] = useState();
   const [image, setImage] = useState();
 
@@ -18,9 +18,14 @@ export const AddClass = (props) => {
     props.setClassName(e.target.value);
   };
 
+  const handleText = (e) => {
+    setClassText(e.target.value);
+  };
+
   const saveClass = async () => {
     let data = {
       className: props.className,
+      classText: classText,
     };
 
     const postClass = await PostClass(
@@ -42,6 +47,9 @@ export const AddClass = (props) => {
     <div className="">
       <div className="pad">
         <input type="text" placeholder="class" onChange={handleClass} />
+      </div>
+      <div className="pad">
+        <textarea type="text" placeholder="text" onChange={handleText} />
       </div>
       <div className="pad">
         {props.select == "class" && (

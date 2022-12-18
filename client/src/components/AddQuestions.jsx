@@ -41,7 +41,7 @@ export const AddQuestions = (props) => {
   const saveQuestions = async () => {
     let data = {
       question: props.question,
-      "optionalAnswers ": [answerA, answerB, answerC, answerD],
+      optionalAnswers: [answerA, answerB, answerC, answerD],
       answer: correct,
       difficulty: 1,
     };

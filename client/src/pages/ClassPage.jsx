@@ -17,7 +17,7 @@ const ClassPage = ({ setToggledClass, currntClass }) => {
   const [classEnded, setClassEnded] = useState(false);
   const [loader, setLoader] = useState(true);
   const img = currntClass.img ? currntClass.img : "";
-  console.log("loader", loader);
+  console.log("currntClass", currntClass);
 
   useEffect(() => {
     if (count > 0) {
@@ -93,17 +93,7 @@ const ClassPage = ({ setToggledClass, currntClass }) => {
                 ></img>
                 {/* <Img src={img} className={"intro-img"}></Img> */}
                 <div className="pad">
-                  <p>
-                    Behavioral psychology is the study of observable behavior
-                    and how it is influenced by environmental factors. In this
-                    class, we will explore the theories and principles of
-                    behavioral psychology and learn how they can be applied in
-                    real-world settings. We will also examine various techniques
-                    used in the field, such as operant and classical
-                    conditioning, and learn how they can be used to shape and
-                    modify behavior. By the end of the class, you should have a
-                    solid understanding of this branch of psychology.
-                  </p>
+                  <p>{currntClass.classText}</p>
                 </div>
                 <button className="pad btn black" onClick={handleQuestions}>
                   Start Class

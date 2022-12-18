@@ -22,8 +22,10 @@ const Questions = ({
   const [disabled, setDisabled] = useState(false);
 
   const token = localStorage.getItem("Token");
-  console.log("token", token);
+  console.log("classQuestions", classQuestions);
+  console.log("count", count);
   const qestion = classQuestions[count];
+  console.log("qestion", qestion);
 
   const onSubmit = async () => {
     if (chosenAnswer == qestion.answer) {
@@ -85,6 +87,10 @@ const Questions = ({
   };
 
   console.log("qestion", qestion);
+
+  console.log("qestion?.optionalAnswers", qestion?.optionalAnswers);
+
+  // console.log("qestion?.optionalAnswers[0]", qestion.optionalAnswers);
 
   return (
     <div className="class-page-content ">
