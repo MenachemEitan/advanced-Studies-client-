@@ -22,14 +22,18 @@ export const AddField = (props) => {
   };
 
   return (
-    <div className="col">
-      <input type="text" placeholder="Field Name" onChange={handleField} />
-      {props.select == "field" && (
-        <button onClick={saveField} className="btn black">
-          Add
-        </button>
-      )}
-      {error && <h5>{error}</h5>}
-    </div>
+    <>
+      <div className="pad">
+        <input type="text" placeholder="Field Name" onChange={handleField} />
+      </div>
+      <div className="col right pad">
+        {props.select == "field" && (
+          <button onClick={saveField} className="btn black">
+            Add
+          </button>
+        )}
+        {error && <h5>{error}</h5>}
+      </div>
+    </>
   );
 };

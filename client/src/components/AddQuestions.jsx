@@ -54,30 +54,31 @@ export const AddQuestions = (props) => {
   // console.log(message);
 
   return (
-    <div className="col">
-      <div className="row">
+    <div className="add-question">
+      <div className="pad">
         <h3>Add new questions </h3>
       </div>
-      <div className="row ">
-        <div className="pad">
-          <Answer setAnswer={handleAnswerA}>Answer A</Answer>
-          <Answer setAnswer={handleAnswerB}>Answer B</Answer>
-          <Answer setAnswer={handleAnswerC}>Answer C</Answer>
-          <Answer setAnswer={handleAnswerD}>Answer D</Answer>
-        </div>
+
+      <div className="pad">
         <textarea
           placeholder="write your question..."
           className="pad"
           name="questions"
-          cols="30"
-          rows="10"
           onChange={handleQuestions}
         ></textarea>
       </div>
+      <div className="pad">
+        <Answer setAnswer={handleAnswerA}>Answer A</Answer>
+        <Answer setAnswer={handleAnswerB}>Answer B</Answer>
+        <Answer setAnswer={handleAnswerC}>Answer C</Answer>
+        <Answer setAnswer={handleAnswerD}>Answer D</Answer>
+      </div>
+      <div className="row right pad">
+        <button onClick={saveQuestions} className="btn black">
+          Add
+        </button>
+      </div>
 
-      <button onClick={saveQuestions} className="btn black">
-        Add
-      </button>
       {message && <h4>{message}</h4>}
     </div>
   );

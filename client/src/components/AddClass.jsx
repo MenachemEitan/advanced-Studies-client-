@@ -33,18 +33,22 @@ export const AddClass = (props) => {
   };
 
   return (
-    <div className="col">
-      <input type="text" placeholder="class" onChange={handleClass} />
-
-      <AddIcon setIcon={setIcon}>upload icon</AddIcon>
-      <AddImage setImage={setImage}>upload Image</AddImage>
-
-      {props.select == "class" && (
-        <button className="btn black" onClick={saveClass}>
-          Add
-        </button>
-      )}
-      {message && <h4>{message}</h4>}
+    <div className="">
+      <div className="pad">
+        <input type="text" placeholder="class" onChange={handleClass} />
+      </div>
+      <div className="pad">
+        <AddIcon setIcon={setIcon}>upload icon</AddIcon>
+        <AddImage setImage={setImage}>upload Image</AddImage>
+      </div>
+      <div className="row right pad">
+        {props.select == "class" && (
+          <button className="btn black" onClick={saveClass}>
+            Add
+          </button>
+        )}
+        {message && <h4>{message}</h4>}
+      </div>
     </div>
   );
 };

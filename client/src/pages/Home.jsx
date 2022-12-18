@@ -20,8 +20,6 @@ const Home = () => {
   const myClassesIds = context?.user?.myClass;
   const islogged = isLoggedIn();
 
-  console.log("islogged", islogged);
-
   useEffect(() => {
     getRecomendedClasses();
   }, []);

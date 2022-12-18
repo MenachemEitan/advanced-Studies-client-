@@ -1,0 +1,29 @@
+.profile-section{
+    position: relative;
+    /* border-bottom: 1px solid #ccc; */
+    padding: 20px 0 10px 0px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    width: 500px;
+    
+   }
+
+   .profile-section:hover{
+    /* background-color: rgb(222, 222, 222);  */
+   
+    box-shadow: 0 1px 3px rgb(77 71 81 / 40%);
+    
+   }
+
+   .arrow-right{
+    transition: transform 0.3s ease-in-out;
+    transform: rotateZ(0deg);
+   }
+  
+   .arrow-down{
+    transition: transform 0.3s ease-in-out;
+    transform: rotateZ(90deg);
+   }
+  
+   
+  

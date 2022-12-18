@@ -2,6 +2,7 @@ import { useState } from "react";
 import { AddClass } from "./AddClass";
 import { AddField } from "./AddField";
 import { AddQuestions } from "./AddQuestions";
+import Section from "../Layouts/section/Section";
 
 export const Admin = () => {
   const [select, setSelect] = useState("");
@@ -17,34 +18,39 @@ export const Admin = () => {
   // console.log(questions,);
 
   return (
-    <div className=" admin-page row">
-      <div className="">
-        {" "}
-        <div className="col">
-          <h2>Add Page</h2>
-          <select onChange={getSelect}>
-            <option value="default" hidden>
-              Choose Type
-            </option>
-            <option value="field">Field</option>
-            <option value="class">Class</option>
-            <option value="questions">Questions</option>
-          </select>
+    <div className="row page-top-pad-admin">
+      <div className="admin-page">
+        <div className="row between">
+          <h2 className="pad">Add Page</h2>
+
+          <div className="pad">
+            <select onChange={getSelect}>
+              <option value="default" hidden>
+                Choose Type
+              </option>
+              <option value="field">Field</option>
+              <option value="class">Class</option>
+              <option value="questions">Questions</option>
+            </select>
+          </div>
+          <div style={{ width: "100px" }}></div>
         </div>
-        <div className="row"></div>
+
         {select === "field" && (
-          <div>
-            <h4>Add new field</h4>
+          <>
+            <div className="col left">
+              <h4 className="pad">Add new field</h4>
+            </div>
             <AddField
               setFieldName={setFieldName}
               fieldName={fieldName}
               select={select}
             />
-          </div>
+          </>
         )}
         {select === "class" && (
           <div>
-            <h4>Add new class</h4>
+            <h4 className="pad">Add new class</h4>
             <AddField setFieldName={setFieldName} fieldName={fieldName} />
             <AddClass
               setClassName={setClassName}
