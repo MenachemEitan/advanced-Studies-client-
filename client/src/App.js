@@ -22,9 +22,9 @@ export const App = () => {
           <Route
             path="/admin"
             element={
-              // <SecureRoute>
+              <SecureRoute>
               <Admin />
-              // </SecureRoute>
+              </SecureRoute>
             }
           />
           <Route path="/profile" />

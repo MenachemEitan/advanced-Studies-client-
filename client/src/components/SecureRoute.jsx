@@ -1,42 +1,42 @@
 import { useState } from "react"
 import { getToken, getUserData } from "../auth/localStorage"
-import { Navigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { useEffect } from "react"
+
 
 export const SecureRoute = (props) => {
 
     const [isAdmin,setAdmin]= useState(false)
-    const token = getToken
-
-    const permission = () =>{
-        if(token){
-          let permissions = getUserData()
-         if (permissions.permissions === 'admin') {
-          setAdmin(true) 
-         }
-         
-        }
-       } 
-       const display =  () => {
-
-        try {
-          
-        if (!isAdmin) {
-          return <Navigate to='home'></Navigate>
-        }
-        
-        } catch (error) {
-           console.log(error);  
-        }
-  
-  }
-
-       useEffect( ()=>{
-        permission()
-        display()
+    
+    const token = getToken()
+    const userData = getUserData()  
+    const nav = useNavigate()
+    const getUser =(data)=>{
+    let user = data
+    return user
+    }
 
     
-    },[isAdmin])
+    const display = async () => {
 
-    return props.children;
+          if (!token) {
+              
+            nav('/home')
+          }
+          else{
+            await getUser(userData)
+            
+            if (userData.permissions !== 'admin') {
+                setAdmin(true)
+                nav('/home') 
+            }
+          }
+  
+  }
+useEffect(()=>{
+display()
+},[isAdmin])
+  
+  return props.children;
+
 }
