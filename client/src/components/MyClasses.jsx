@@ -1,26 +1,34 @@
 import axios from "axios";
+import { useRef } from "react";
 import { useEffect, useState } from "react";
 import { baseUrl } from "../axiosController";
 import ClassCard from "./ClassCard";
 
-const MyClasses = ({ choseClass, myClassesIds, currntClass }) => {
+const MyClasses = ({ choseClass, myClassesIds }) => {
   const [myClasses, setMyClasses] = useState([]);
 
   useEffect(() => {
     getMyClasses();
-  }, []);
+  }, [myClassesIds]);
 
-  const getMyClasses = async () => {
+  const renderClass = useRef([])
+
+  let getMyClasses = async () => {
     try {
-      const tempClassList = [];
+      let tempClassList = [];
       for (let key in myClassesIds) {
-        const temp = await axios.get(`${baseUrl}/class/${key}`);
-        console.log(temp.data.data);
+        let temp = await axios.get(`${baseUrl}/class/${key}`);
+        // console.log(temp.data.data);
         tempClassList.push(temp?.data?.data);
         console.log("tempClassList", tempClassList);
+        renderClass.current  = tempClassList
+        
       }
-
+      
       setMyClasses(tempClassList);
+      
+      
+      console.log(renderClass);
     } catch (err) {
       console.log(err);
     }
@@ -28,7 +36,7 @@ const MyClasses = ({ choseClass, myClassesIds, currntClass }) => {
 
   let i = 1;
   const title = myClasses.length ? "My Classes" : "";
-  console.log("myClasses", myClasses);
+  // console.log("myClasses", myClasses);
   return (
     <div className="MyClasses">
       <div className="classes row left">

@@ -19,16 +19,8 @@ export const App = () => {
           <Route path="/home" element={<Home />} />
           <Route path="/classes" element={<ClassesPage />} />
           <Route path="/class" element={<ClassPage />} />
-          <Route
-            path="/admin"
-            element={
-              <SecureRoute>
-              <Admin />
-              </SecureRoute>
-            }
-          />
-          <Route path="/profile" />
-        </Routes>
+          <Route path="/admin" element={ <SecureRoute> <Admin /></SecureRoute>}/>
+          <Route path="/profile" /></Routes>
       </UserProvider>
     </div>
   );
