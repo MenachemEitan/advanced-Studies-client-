@@ -6,11 +6,8 @@ import ButtonCol from "../Layouts/Button/ButtonCol";
 import Animation from "./Animation";
 
 const Questions = ({
-  text,
-  answers,
   setCount,
   count,
-  setQuestion,
   previousBtnDisplay,
   classQuestions,
   currntClass,
@@ -21,12 +18,8 @@ const Questions = ({
   const [answerSubmited, setAnswerSubmited] = useState(false);
   const [disabled, setDisabled] = useState(false);
   const [animation, setAnimation] = useState(false);
-
-  const token = localStorage.getItem("Token");
-  console.log("classQuestions", classQuestions);
-  console.log("count", count);
   const qestion = classQuestions[count];
-  console.log("qestion", qestion);
+  const img = qestion?.img ? qestion?.img : "";
 
   const onSubmit = async () => {
     if (chosenAnswer == qestion.answer) {
@@ -87,15 +80,14 @@ const Questions = ({
     }
   };
 
-  console.log("qestion", qestion);
-
-  console.log("qestion?.optionalAnswers", qestion?.optionalAnswers);
-
-  // console.log("qestion?.optionalAnswers[0]", qestion.optionalAnswers);
-
   return (
     <div className="class-page-content ">
-      <img src={require(`../assets/img/motion.png`)}></img>
+      <div className="row">
+        <img
+          src={`${baseUrl}/class/getpic/pic/${img}`}
+          className="qestion-img pad "
+        ></img>
+      </div>
 
       <div className="row between">
         <div className="col left">

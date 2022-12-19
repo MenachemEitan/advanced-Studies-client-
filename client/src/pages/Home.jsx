@@ -19,6 +19,7 @@ const Home = () => {
   const [recomendedClass, setRecomendedClass] = useState([]);
   const context = useContext(UserContext);
   const myClassesIds = context?.user?.myClass;
+
   const islogged = isLoggedIn();
 
   useEffect(() => {
@@ -36,7 +37,6 @@ const Home = () => {
       });
 
       setRecomendedClass(resp.data.data);
-      console.log("recomendedClass", recomendedClass);
     } catch (err) {
       console.log(err);
     }

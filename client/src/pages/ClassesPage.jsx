@@ -22,7 +22,6 @@ const ClassesPage = () => {
         `${baseUrl}/class/search/get/?text=${searchInput}`
       );
       setSearchClasses(response);
-      console.log(searchClasses);
     } catch (err) {
       console.log(err);
     }

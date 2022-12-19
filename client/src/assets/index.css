@@ -46,7 +46,7 @@
     --fs-xl:  clamp(1.5rem, 2vw, 4rem);
     --fs-xxl:   clamp(2rem, 2.5vw, 4.5rem);
 
-    --img-xxs:   clamp(60px, 20vw, 170px);
+    --img-xxs:   clamp(120px, 50vw, 170px);
     --img-xs:   clamp(180px, 25vw, 250px);
     --img-sm:  clamp(175px, 20vw, 300px);
     --img-md:  clamp(200px, 25vw, 350px);
@@ -214,6 +214,12 @@ textarea{
     margin-top: 50px;
     width: var(--img-xl);
    
+  }
+
+  .qestion-img{
+ 
+    max-width: 100%;
+    max-height: 400px;
   }
 
   .navbar{
@@ -434,8 +440,8 @@ textarea{
 }
 
 .back-btn{
-  display: flex;
-  justify-content: flex-start;
+  position:absolute;
+  top:70px;
 }
 
 .start-class-btn{
@@ -504,7 +510,8 @@ position: relative;
   .card-img{
     width: var(--img-xxs);
     position: absolute;
-   right:10px;
+   right:0px;
+   top: 0px;
    
   }
   .header-title{

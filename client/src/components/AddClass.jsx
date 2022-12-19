@@ -4,15 +4,10 @@ import { AddIcon } from "./AddIcon";
 import { AddImage } from "./AddImage";
 
 export const AddClass = (props) => {
-  // console.log(props.fieldName);
-  // console.log(props.className);
   const [message, setMessage] = useState([]);
   const [classText, setClassText] = useState("");
   const [icon, setIcon] = useState();
   const [image, setImage] = useState();
-
-  // console.log(icon);
-  // console.log(image);
 
   const handleClass = (e) => {
     props.setClassName(e.target.value);
@@ -37,7 +32,6 @@ export const AddClass = (props) => {
     );
     if (postClass.length != 0) {
       setMessage(postClass);
-      console.log(postClass);
     } else {
       setMessage("Success");
     }
@@ -49,7 +43,9 @@ export const AddClass = (props) => {
         <input type="text" placeholder="class" onChange={handleClass} />
       </div>
       <div className="pad">
-        <textarea type="text" placeholder="text" onChange={handleText} />
+        {props.select == "class" && (
+          <textarea type="text" placeholder="text" onChange={handleText} />
+        )}
       </div>
       <div className="pad">
         {props.select == "class" && (

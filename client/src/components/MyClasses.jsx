@@ -11,24 +11,17 @@ const MyClasses = ({ choseClass, myClassesIds }) => {
     getMyClasses();
   }, [myClassesIds]);
 
-  const renderClass = useRef([])
+  const renderClass = useRef([]);
 
   let getMyClasses = async () => {
+    let tempClassList = [];
     try {
-      let tempClassList = [];
       for (let key in myClassesIds) {
         let temp = await axios.get(`${baseUrl}/class/${key}`);
-        // console.log(temp.data.data);
         tempClassList.push(temp?.data?.data);
-        console.log("tempClassList", tempClassList);
-        renderClass.current  = tempClassList
-        
+        renderClass.current = tempClassList;
       }
-      
       setMyClasses(tempClassList);
-      
-      
-      console.log(renderClass);
     } catch (err) {
       console.log(err);
     }
@@ -36,7 +29,7 @@ const MyClasses = ({ choseClass, myClassesIds }) => {
 
   let i = 1;
   const title = myClasses.length ? "My Classes" : "";
-  // console.log("myClasses", myClasses);
+
   return (
     <div className="MyClasses">
       <div className="classes row left">

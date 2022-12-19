@@ -17,8 +17,6 @@ const PopularClasses = ({ choseClass, currntClass }) => {
     }
   };
 
-  console.log("popClasses", popClasses);
-
   return (
     <div className="popular-classes ">
       <div className="cards-title">Popular Classes</div>

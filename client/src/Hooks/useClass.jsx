@@ -9,7 +9,7 @@ const useClass = () => {
 
   const choseClass = async (id, classesList) => {
     const token = localStorage.getItem("Token");
-    console.log("!token", !token);
+
     if (token) {
       try {
         const resp = await axios.post(
@@ -36,7 +36,7 @@ const useClass = () => {
           classId: id,
         });
         const currntClass = resp?.data?.data[0];
-        console.log("notLogin-currntClass", currntClass);
+
         setCurrntClass(currntClass);
         setToggledClass(!toggledClass);
       } catch (err) {

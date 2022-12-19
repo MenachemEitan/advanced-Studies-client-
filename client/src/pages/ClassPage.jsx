@@ -15,9 +15,7 @@ const ClassPage = ({ setToggledClass, currntClass }) => {
   const [qestion, setQuestion] = useState();
   const [previousBtnDisplay, setPreviousBtnDisplay] = useState("none");
   const [classEnded, setClassEnded] = useState(false);
-  const [loader, setLoader] = useState(true);
   const img = currntClass.img ? currntClass.img : "";
-  console.log("currntClass", currntClass);
 
   useEffect(() => {
     if (count > 0) {
@@ -42,6 +40,8 @@ const ClassPage = ({ setToggledClass, currntClass }) => {
 
       const questionsIds = await resp.data.data.question;
 
+      console.log("questionsIds", questionsIds);
+
       for (let questionId of questionsIds) {
         const temp = await axios.get(`${baseUrl}/class/question/${questionId}`);
 
@@ -62,7 +62,6 @@ const ClassPage = ({ setToggledClass, currntClass }) => {
   // }, [500]);
   return (
     <div className="class-page fade-in">
-      {/* {loader && <span class="loader"></span>} */}
       {classEnded ? (
         <EndgPage setToggledClass={setToggledClass} />
       ) : (

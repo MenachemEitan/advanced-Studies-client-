@@ -13,10 +13,6 @@ export const Admin = () => {
   const [className, setClassName] = useState("");
   const [questions, setQuestions] = useState("");
   const [classText, setClassText] = useState("");
-  // console.log(select);
-  // console.log(fieldName,'fieldName');
-  // console.log(className,'className');
-  // console.log(questions,);
 
   return (
     <div className="row page-top-pad-admin">
@@ -63,7 +59,7 @@ export const Admin = () => {
         )}
         {select === "questions" && (
           <div>
-            <AddClass setClassName={setClassName} />
+            <AddClass setClassName={setClassName} select={select} />
             <AddQuestions
               setQuestions={setQuestions}
               question={questions}

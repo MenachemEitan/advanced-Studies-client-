@@ -33,11 +33,6 @@ export const AddQuestions = (props) => {
     setCorrect(e.target.value);
   };
 
-  // console.log(answerA);
-  // console.log(answerB);
-  // console.log(answerC);
-  // console.log(answerD);
-
   const saveQuestions = async () => {
     let data = {
       question: props.question,
@@ -53,13 +48,10 @@ export const AddQuestions = (props) => {
     );
     if (postQuestions.length != 0) {
       setMessage(postQuestions);
-      console.log(postQuestions);
     } else {
-      console.log(postQuestions);
       setMessage("Success");
     }
   };
-  // console.log(message);
 
   return (
     <div className="add-question">

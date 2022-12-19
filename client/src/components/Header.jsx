@@ -12,19 +12,19 @@ import Navbar from "./Navbar";
 const Header = () => {
   const token = getToken();
   const [isLogin, setLogin] = useState(false);
-  const [isAdmin, setAdmin] = useState(true);
+  const [isAdmin, setAdmin] = useState(false);
 
-  // const permission = () => {
-  //   if (token) {
-  //     let permissions = getUserData();
-  //     if (permissions.permissions === "admin") {
-  //       setAdmin(true);
-  //     }
-  //   }
-  // };
+  const permission = () => {
+    if (token) {
+      let permissions = getUserData();
+      if (permissions.permissions === "admin") {
+        setAdmin(true);
+      }
+    }
+  };
 
   useEffect(() => {
-    // permission();
+    permission();
     if (token) {
       setLogin(true);
     }
@@ -33,6 +33,7 @@ const Header = () => {
   const handleLogOut = () => {
     forLogout();
     setLogin(false);
+    setAdmin(false);
   };
   return (
     <header className="header">
@@ -72,7 +73,7 @@ const Header = () => {
               </div>
             )}
             <div className="col left pad">
-              {true && (
+              {isAdmin && (
                 <NavLink to={"/admin"} className="nav-link">
                   Admin
                 </NavLink>
