@@ -1,7 +1,7 @@
 .crcular-progress-bar{
   position: absolute;
   top: 100px;
-
+z-index: 1000;
 }
 .circle-wrap {
   display: grid;

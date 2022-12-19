@@ -20,6 +20,7 @@ const Questions = ({
   const [styles, setStyles] = useState("");
   const [answerSubmited, setAnswerSubmited] = useState(false);
   const [disabled, setDisabled] = useState(false);
+  const [animation, setAnimation] = useState(false);
 
   const token = localStorage.getItem("Token");
   console.log("classQuestions", classQuestions);
@@ -106,7 +107,7 @@ const Questions = ({
           </div>
         </div>
 
-        <div className="col right">
+        <div className="col right ">
           <ButtonCol
             text={qestion?.optionalAnswers[0]}
             className={"btn gray"}
@@ -149,6 +150,7 @@ const Questions = ({
           />
         </div>
       </div>
+      <div className="row left"> animation</div>
       <div className="submit-btn col right">
         {answerSubmited ? (
           <>
@@ -169,28 +171,48 @@ const Questions = ({
           </>
         ) : (
           <>
-            <div className="row right">
-              <button
-                className="btn black"
-                onClick={goBack}
-                style={{ display: previousBtnDisplay }}
-              >
-                previous qestion
-              </button>
-              <button
-                className="btn black"
-                onClick={onSubmit}
-                disabled={!chosenAnswer}
-              >
-                submit
-              </button>
+            <div className="row between" style={{ width: "100%" }}>
+              <div className="col pad">
+                {/* <div className="pad">use animation </div> */}
+
+                <div
+                  style={{ width: "50px" }}
+                  className="btn row "
+                  onClick={() => {
+                    setAnimation(!animation);
+                  }}
+                >
+                  <i class="far fa-lightbulb"></i>
+                </div>
+              </div>
+              <div className="row right">
+                <button
+                  className="btn black"
+                  onClick={goBack}
+                  style={{ display: previousBtnDisplay }}
+                >
+                  previous qestion
+                </button>
+                <button
+                  className="btn black"
+                  onClick={onSubmit}
+                  disabled={!chosenAnswer}
+                >
+                  submit
+                </button>
+              </div>
             </div>
           </>
         )}
         {/* <h3>{submit}</h3> */}
-        <div id="animation" className="animation">
-          <Animation></Animation>
-        </div>
+
+        {animation && (
+          <div id="animation" className="animation fade-in">
+            <div className=""></div>
+
+            <Animation setAnimation={setAnimation}></Animation>
+          </div>
+        )}
       </div>
     </div>
   );
