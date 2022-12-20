@@ -47,6 +47,7 @@ export const SignUp = (props) => {
     } else {
       props.handleModal();
       props.setLogin(true);
+      window.location.reload();
     }
   };
 

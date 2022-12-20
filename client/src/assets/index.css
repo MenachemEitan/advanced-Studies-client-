@@ -206,8 +206,10 @@ textarea{
 
   .card-img{
     width: var(--img-xxs);
-    position: absolute;
-    bottom:10px;
+    max-height: 150px;
+   
+    /* position: absolute;
+    bottom:10px; */
   }
 
   .intro-img{
@@ -217,7 +219,6 @@ textarea{
   }
 
   .qestion-img{
- 
     max-width: 100%;
     max-height: 400px;
   }
@@ -277,7 +278,7 @@ textarea{
  }
 
    .card2 {
-    width: 166px;
+    width: 186px;
      min-width: 136px; 
     
     height: clamp(200px, 20vw, 250px);
@@ -288,7 +289,7 @@ textarea{
     /* background-color: #f2f8f9; */
     border: 1px solid rgb(29, 27, 27);
     border-radius: 4px;
-    padding: 32px 24px;
+    /* padding: 32px 24px; */
     margin: 12px;
     text-decoration: none;
     z-index: 0;
@@ -338,16 +339,20 @@ textarea{
     }
 
     .popular-classes{
-      margin: auto;
-      width: clamp(600px ,70vw , 800px);
+      
+      width: clamp(200px ,80vw , 900px);
       /* border: 3px solid green; */
+      margin-left: auto;
+      margin-right: auto;
       padding: 10px;
     }
 
     .my-classes{
-      margin: auto;
-      width: clamp(600px ,80vw , 900px);
+      /* margin: auto; */
+      /* width: clamp(600px ,80vw , 900px); */
       /* border: 3px solid green; */
+      margin-left: auto;
+      margin-right: auto;
       padding: 10px;
       flex-wrap: wrap;
     }
@@ -376,12 +381,13 @@ textarea{
 
     .classes{
       margin: auto;
-      width: clamp(200px ,70vw , 800px);
+      width: clamp(200px ,80vw , 900px);
+    
       position: relative;
       /* border: 3px solid green; */
       padding: 10px;
       display: flex;
-      justify-content: flex-start;
+      
     }
 
     

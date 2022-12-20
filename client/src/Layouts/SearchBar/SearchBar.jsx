@@ -14,7 +14,7 @@ const SearchBar = ({
     clearTimeout(timer);
     timer = setTimeout(() => {
       onSearch(searchInput);
-    }, 1000);
+    }, 2000);
     setToggledResult(true);
   };
 

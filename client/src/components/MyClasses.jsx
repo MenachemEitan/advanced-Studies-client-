@@ -7,6 +7,8 @@ import ClassCard from "./ClassCard";
 const MyClasses = ({ choseClass, myClassesIds }) => {
   const [myClasses, setMyClasses] = useState([]);
 
+  console.log("myClasses", myClasses);
+
   useEffect(() => {
     getMyClasses();
   }, [myClassesIds]);
@@ -15,9 +17,11 @@ const MyClasses = ({ choseClass, myClassesIds }) => {
 
   let getMyClasses = async () => {
     let tempClassList = [];
+    console.log("myClassesIds", myClassesIds);
     try {
       for (let key in myClassesIds) {
         let temp = await axios.get(`${baseUrl}/class/${key}`);
+        console.log("temp", temp);
         tempClassList.push(temp?.data?.data);
         renderClass.current = tempClassList;
       }
@@ -29,6 +33,7 @@ const MyClasses = ({ choseClass, myClassesIds }) => {
 
   let i = 1;
   const title = myClasses.length ? "My Classes" : "";
+  // const topFourClasses = myClasses.slice(0, 3);
 
   return (
     <div className="MyClasses">
@@ -49,16 +54,14 @@ const MyClasses = ({ choseClass, myClassesIds }) => {
                 precent={
                   !myClassesIds[singleClass._id].length
                     ? 0
-                    : (singleClass?.question?.length /
-                        myClassesIds[singleClass._id]?.length) *
-                      180
+                    : (myClassesIds[singleClass._id]?.length * 180) /
+                      singleClass?.question?.length
                 }
                 num={
                   !myClassesIds[singleClass._id].length
                     ? 0
-                    : (singleClass?.question?.length /
-                        myClassesIds[singleClass._id]?.length) *
-                      100
+                    : (myClassesIds[singleClass._id]?.length * 100) /
+                      singleClass?.question?.length
                 }
               />
             ))}

@@ -6,6 +6,7 @@ import { UserContext } from "../context/UserContext";
 const useClass = () => {
   const [currntClass, setCurrntClass] = useState("");
   const [toggledClass, setToggledClass] = useState(false);
+  const context = useContext(UserContext);
 
   const choseClass = async (id, classesList) => {
     const token = localStorage.getItem("Token");
@@ -27,6 +28,7 @@ const useClass = () => {
         setCurrntClass(currntClass);
 
         setToggledClass(!toggledClass);
+        context.getUser();
       } catch (err) {
         console.log(err);
       }

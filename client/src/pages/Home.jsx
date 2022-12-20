@@ -20,6 +20,8 @@ const Home = () => {
   const context = useContext(UserContext);
   const myClassesIds = context?.user?.myClass;
 
+  console.log("myClassesIds", myClassesIds);
+
   const islogged = isLoggedIn();
 
   useEffect(() => {
@@ -58,11 +60,11 @@ const Home = () => {
               {islogged && (
                 <>
                   <b>{`Hello ${context?.user?.userName} `}</b>
-                  <b>{`good progress so far!`}</b>
+                  <b>{`Discover the world of science and math `}</b>
                 </>
               )}
 
-              <h6>classes completed: 5</h6>
+              {/* <h6>classes completed: 5</h6> */}
             </h2>
             <div className=" row right">
               <img src={homePagePhoto} className="homePagePhoto"></img>

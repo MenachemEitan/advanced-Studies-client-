@@ -1,6 +1,7 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { baseUrl } from "../axiosController";
+import { UserContext } from "../context/UserContext";
 import Button from "../Layouts/Button/Button";
 import ButtonCol from "../Layouts/Button/ButtonCol";
 import Animation from "./Animation";
@@ -18,6 +19,7 @@ const Questions = ({
   const [answerSubmited, setAnswerSubmited] = useState(false);
   const [disabled, setDisabled] = useState(false);
   const [animation, setAnimation] = useState(false);
+  const context = useContext(UserContext);
   const qestion = classQuestions[count];
   const img = qestion?.img ? qestion?.img : "";
 
@@ -39,6 +41,7 @@ const Questions = ({
           );
           console.log("resp", resp);
         }
+        context.getUser();
       } catch (err) {
         console.log(err);
       }
@@ -93,7 +96,7 @@ const Questions = ({
         <div className="col left">
           <div className="qestion-text">
             <h4>
-              <b>Qestion 1</b>
+              <b>{`Qestion ${count + 1}`}</b>
             </h4>
             <p>{qestion?.question}</p>
           </div>
